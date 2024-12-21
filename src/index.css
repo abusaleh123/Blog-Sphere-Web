@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    font-family: "Merriweather", serif;
+}
+
+
+
+
+.active{
+    color:blue;
+    background-color: aquamarine;
+}
