@@ -1,4 +1,5 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import logo from '../../assets/blogger.png'
 
 
 const Navbar = () => {
@@ -35,19 +36,23 @@ const Navbar = () => {
               <li><a>Item 3</a></li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">Blogs</a>
+        <Link to={'/'} className="flex items-center">
+            <img className="w-12" src={logo} alt="" />
+        <a className="btn btn-ghost text-xl">BlogSphere</a>
+        </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal gap-8 px-3">
-        <NavLink to={'/'}>Home</NavLink>
-        <NavLink to={'/addBlogs'}>Add Blogs</NavLink>
-        <NavLink to={'/allBlogs'}>All Blogs</NavLink>
-        <NavLink to={'/featured'}>Featured Blogs</NavLink>
-        <NavLink to={'/wishList'}>WishList</NavLink>
+          <ul className="menu menu-horizontal gap-8 px-3 lg:text-lg font-semibold">
+        <NavLink  className={'nav'}  to={'/'}>Home</NavLink>
+        <NavLink className={'nav'}  to={'/addBlogs'}>Add Blogs</NavLink>
+        <NavLink  className={'nav'} to={'/allBlogs'}>All Blogs</NavLink>
+        <NavLink  className={'nav'} to={'/featured'}>Featured Blogs</NavLink>
+        <NavLink className={'nav'}  to={'/wishList'}>WishList</NavLink>
           </ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn">Button</a>
+        <div className="navbar-end gap-2">
+          <button style={{ background: "linear-gradient(to top, #5350C3 0%, #8784F8 59%)"}} className="btn text-white lg:text-lg font-bold">Register</button>
+          <button style={{ background: "linear-gradient(to top, #5350C3 0%, #8784F8 59%)"}} className="btn text-white lg:text-lg font-bold">Login</button>
         </div>
       </div>
       </div>
