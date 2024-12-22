@@ -1,16 +1,68 @@
 import React from 'react';
 import bg from '../../src/assets/Images/addBlogsbg.jpg'
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 
 
 
 const AddBlogs = () => {
+
+    // http://localhost:5000/blogs
+    const handleAddBlogs = e => {
+        e.preventDefault();
+
+        const form = e.target;
+        const title = form.title.value;
+        const photo = form.photo.value;
+        const short_description = form.short_description.value;
+        const long_description = form.long_description.value;
+        const category = form.category.value;
+
+        console.log(title, photo, short_description, long_description, category);
+        const newBlog = {title, photo, short_description, long_description, category}
+
+axios.post('http://localhost:5000/blogs', newBlog)
+.then(res => {
+    console.log(res.data);
+
+    if(res.data.insertedId){
+        Swal.fire({
+            icon: "success",
+            title: "Blog Add Successful!",
+            text: "You Are Successfully Added A Blog",
+         
+            confirmButtonText: 'Close',
+         
+            showCancelButton: false,
+            customClass: {
+              confirmButton: 'custom-confirm-button',
+            
+              popup: 'custom-popup', 
+              title: 'custom-title', 
+              icon: 'custom-icon' ,
+              
+            },
+            buttonsStyling: true
+          });
+          form.reset()
+    }
+})
+.catch(error => {
+    console.log(error);
+})
+        
+    }
+
+
+
+
     return (
         <div style={{backgroundImage: `url(${bg})`, backgroundSize: 'cover'}} className="bg-white py-10    flex items-center justify-center ">
        <div className='border-2 w-full lg:w-5/12 lg:p-20 rounded-xl backdrop-blur-md'   >
       <div className="w-full lg:w-full border border-white-600 backdrop-blur-xl p-8 rounded-lg shadow-lg">
       <div >
-          <form  className="space-y-4 gap-6">
+          <form onSubmit={handleAddBlogs}  className="space-y-4 gap-6">
               <h2 style={{
  background: "linear-gradient(to top, #5350C3 10%, #8784F8 79%)",
  WebkitBackgroundClip: "text",
@@ -44,8 +96,8 @@ const AddBlogs = () => {
                   </label>
                   <input
                       type="url"
-                      id="cover"
-                      name="cover"
+                      id="photo"
+                      name="photo"
                       placeholder="Enter game cover URL"
                       className="w-full p-2 border rounded-lg shadow-sm  bg-white/20  hover:border-[#6663D6] focus:border-[#6663D6] focus:outline-none"
                       required
@@ -58,8 +110,9 @@ const AddBlogs = () => {
                     Short Description:
                   </label>
                   <input
-                      id="review"
-                      name="review"
+                  type='text'
+                      id="short_description"
+                      name="short_description"
                       
                       placeholder="Write your Short Description"
                       className="w-full p-2 border rounded-lg shadow-sm  bg-white/20   hover:border-[#6663D6] focus:border-[#6663D6] focus:outline-none"
@@ -72,8 +125,9 @@ const AddBlogs = () => {
                     Long Description:
                   </label>
                   <input
-                      id="review"
-                      name="review"
+                  type='text'
+                      id="long_description"
+                      name="long_description"
                       
                       placeholder="Write your Long Description"
                       className="w-full p-2 border rounded-lg shadow-sm  bg-white/20   hover:border-[#6663D6] focus:border-[#6663D6] focus:outline-none"
@@ -96,17 +150,14 @@ const AddBlogs = () => {
                       required
                   >
                       <option className='text-black' disabled selected value="disabled">Select Category</option>
-                      <option className='text-black' value="Action">Web Development and Design</option>
-                      <option className='text-black' value="RPG">Gaming and Entertainment
+                      <option className='text-black' value="Web Development and Design">Web Development and Design</option>
+                      <option className='text-black' value="Gaming and Entertainment">Gaming and Entertainment
                       </option>
-                      <option className='text-black' value="Adventure">Adventure</option>
-                      <option className='text-black' value="Puzzle">Gaming and Entertainment
+                      <option className='text-black' value="Health and Wellness">Health and Wellness
                       </option>
-                      <option className='text-black' value="Sports">Health and Wellness
+                      <option className='text-black' value="Tech Trends and Gadgets">Tech Trends and Gadgets
                       </option>
-                      <option className='text-black' value="Racing">Tech Trends and Gadgets
-                      </option>
-                      <option className='text-black' value="Run">Travel and Adventure
+                      <option className='text-black' value="Travel and Adventure">Travel and Adventure
 
 
 

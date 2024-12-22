@@ -22,10 +22,31 @@ const navigate = useNavigate();
     console.log(name, photo, email, password);
 
     const newUser = {name, email, photo, password};
-
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/;
     if(password.length < 6){
         toast.error('Password Should be at least 6 character')
         return
+    }
+    if(!passwordRegex.test(password)) {
+      Swal.fire({
+        icon: "error",
+        title: "Password Validation Wrong",
+        text: "Password Should be at least a Capital letter, numeric character, and numeric character",
+         
+        confirmButtonText: 'Close',
+     
+        showCancelButton: false,
+        customClass: {
+          confirmButton: 'custom-confirm-button',
+        
+          popup: 'custom-popup', 
+          title: 'custom-title', 
+          icon: 'custom-icon' ,
+          
+        },
+        buttonsStyling: true
+      });
+      return
     }
 
     registerWithEmailPass(email, password)
