@@ -1,9 +1,6 @@
 import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import photo1 from '../../assets/allreview.jpg'
-import photo2 from '../../assets/avatar1.jpg'
-import photo3 from '../../assets/login.png'
-import photo4 from '../../assets/regibg.jpg'
+
 import { motion } from "framer-motion";
 
 // Import Swiper styles

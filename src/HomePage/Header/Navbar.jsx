@@ -1,8 +1,25 @@
 import { Link, NavLink } from "react-router-dom";
-import logo from '../../assets/blogger.png'
+import logo from '../../assets/Images/blogger.png'
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { signOut } from "firebase/auth";
+import auth from "../../firebase.init";
 
 
 const Navbar = () => {
+  const {user} = useContext(AuthContext);
+
+
+
+  const handleLogOut = () => {
+    signOut(auth)
+  .then(result => {
+    console.log(result);
+  })
+  .catch(error => {
+    console.log(error);
+  })
+  }
     return (
         <div className="w-full"> 
         <div className="navbar lg:w-11/12 mx-auto py-6">
@@ -51,8 +68,14 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-2">
-          <button style={{ background: "linear-gradient(to top, #5350C3 0%, #8784F8 59%)"}} className="btn text-white lg:text-lg font-bold">Register</button>
-          <button style={{ background: "linear-gradient(to top, #5350C3 0%, #8784F8 59%)"}} className="btn text-white lg:text-lg font-bold">Login</button>
+         {
+          user ? <>
+          <img className="w-12 h-12 object-cover rounded-full" src={user.photoURL} alt="" />
+          </> :   <Link to={'/register'} style={{ background: "linear-gradient(to top, #5350C3 0%, #8784F8 59%)"}} className="btn text-white lg:text-lg font-bold">Register</Link>
+         }
+         {
+          user ?  <button onClick={handleLogOut} style={{ background: "linear-gradient(to top, #5350C3 0%, #8784F8 59%)"}} className="btn text-white lg:text-lg font-bold">Log Out</button> :  <Link to={'/login'} style={{ background: "linear-gradient(to top, #5350C3 0%, #8784F8 59%)"}} className="btn text-white lg:text-lg font-bold">Login</Link>
+         }
         </div>
       </div>
       </div>
