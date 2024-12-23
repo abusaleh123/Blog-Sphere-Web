@@ -10,17 +10,17 @@ body{
 
 
 .nav:hover{
-    color:red;
+    color: #6461D5;
     text-decoration: underline;
     transition: 0.5s;
     transition-duration: 0.5s;
   }
   
   .active:hover{
-    color:red
+    color:#6461D5
   }
 .active{
-    color:red;
+    color:#6461D5;
   
   
 }

@@ -28,8 +28,8 @@ const Login = () => {
           setUser(result);
           Swal.fire({
             icon: "success",
-            title: "Registration Successful!",
-            text: "You Are Successfully Registered",
+            title: "Login Successful!",
+            text: "You Are Successfully Loged In",
           
             confirmButtonText: 'Close',
          

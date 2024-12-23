@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import moment from "moment";
 
 const AllBlogsCard = ({blog}) => {
     const {user} = useContext(AuthContext)
     const {title, photo, category, short_description, long_description} = blog;
 const email = user?.email;
-// console.log(email);
-    const newWishList = {title,   photo, email, category, short_description, long_description};
+ let date = moment().format(" Do MMM YYYY,  h:mm:ss a");
+// console.log(date);
+    const newWishList = {title,   photo, email, category, short_description, long_description, date};
 
     const handleWisList = () => {
         axios.post('http://localhost:5000/wishList', newWishList)
