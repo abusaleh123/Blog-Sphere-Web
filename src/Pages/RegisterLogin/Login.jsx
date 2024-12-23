@@ -3,12 +3,14 @@ import Lottie from 'lottie-react';
 
 import register from '../../assets/JSON/login.json';
 import bg from '../../assets/Images/rm222batch3-kul-15.jpg'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
   const {signInWithEmailPass, setUser} = useContext(AuthContext);
+  const navigate = useNavigate()
 
       const handleLogin = e => {
         e.preventDefault()
@@ -23,10 +25,48 @@ const Login = () => {
         signInWithEmailPass(email, password)
         .then(result => {
           console.log(result);
-          setUser(result)
+          setUser(result);
+          Swal.fire({
+            icon: "success",
+            title: "Registration Successful!",
+            text: "You Are Successfully Registered",
+          
+            confirmButtonText: 'Close',
+         
+            showCancelButton: false,
+            customClass: {
+              confirmButton: 'custom-confirm-button',
+            
+              popup: 'custom-popup', 
+              title: 'custom-title', 
+              icon: 'custom-icon' ,
+              
+            },
+            buttonsStyling: true
+          });
+          navigate('/')
+
         })
         .catch(error => {
           console.log(error);
+          Swal.fire({
+            icon: "error",
+            title: "Login Failed!",
+            text: "You are failed to login",
+            
+            confirmButtonText: 'Close',
+         
+            showCancelButton: false,
+            customClass: {
+              confirmButton: 'custom-confirm-button',
+            
+              popup: 'custom-popup', 
+              title: 'custom-title', 
+              icon: 'custom-icon' ,
+              
+            },
+            buttonsStyling: true
+          });
         })
 
       }

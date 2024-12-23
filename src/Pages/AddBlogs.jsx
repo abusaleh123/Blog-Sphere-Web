@@ -3,28 +3,32 @@ import bg from '../../src/assets/Images/addBlogsbg.jpg'
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Provider/AuthProvider';
+import moment from 'moment';
 
 
 
 
 const AddBlogs = () => {
 const {user}  = useContext(AuthContext)
-    // http://localhost:5000/blogs
-    const email = user.email;
+
+
+  
 
     const handleAddBlogs = e => {
         e.preventDefault();
-
+        let date = moment().format(" Do MMM YY");
         const form = e.target;
         const title = form.title.value;
         const photo = form.photo.value;
         const short_description = form.short_description.value;
         const long_description = form.long_description.value;
         const category = form.category.value;
+        const name = user.displayName;
+ 
 
         console.log(title, photo, short_description, long_description, category);
         const email = user.email;
-        const newBlog = {title, photo, short_description, long_description, category, email};
+        const newBlog = {title, photo, short_description, long_description, category, email, date, name};
 
 axios.post('http://localhost:5000/blogs', newBlog)
 .then(res => {
@@ -180,7 +184,7 @@ axios.post('http://localhost:5000/blogs', newBlog)
                       type="submit"
                       className="w-full mx-auto mt-6 text-white  btn btn-ghost border-white text-md  md:text-lg font-bold py-2 rounded-lg hover:border transition"
                   >
-                      Submit Review
+                      Submit Blog
                   </button>
               </div>
           </form>

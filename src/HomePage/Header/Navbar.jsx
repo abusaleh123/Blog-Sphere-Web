@@ -63,10 +63,14 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal gap-8 px-3 lg:text-lg font-semibold">
         <NavLink  className={'nav'}  to={'/'}>Home</NavLink>
-        <NavLink className={'nav'}  to={'/addBlogs'}>Add Blogs</NavLink>
+        {
+          user && <NavLink className={'nav'}  to={'/addBlogs'}>Add Blogs</NavLink>
+        }
         <NavLink  className={'nav'} to={'/allBlogs'}>All Blogs</NavLink>
         <NavLink  className={'nav'} to={'/featured'}>Featured Blogs</NavLink>
-        <NavLink className={'nav'}  to={'/wishList'}>WishList</NavLink>
+     {
+      user &&    <NavLink className={'nav'}  to={'/wishList'}>WishList</NavLink>
+     }
           </ul>
         </div>
         <div className="navbar-end gap-2">
