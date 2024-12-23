@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import bg from '../../src/assets/Images/addBlogsbg.jpg'
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../Provider/AuthProvider';
 
 
 
 
 const AddBlogs = () => {
-
+const {user}  = useContext(AuthContext)
     // http://localhost:5000/blogs
+    const email = user.email;
+
     const handleAddBlogs = e => {
         e.preventDefault();
 
@@ -20,7 +23,8 @@ const AddBlogs = () => {
         const category = form.category.value;
 
         console.log(title, photo, short_description, long_description, category);
-        const newBlog = {title, photo, short_description, long_description, category}
+        const email = user.email;
+        const newBlog = {title, photo, short_description, long_description, category, email};
 
 axios.post('http://localhost:5000/blogs', newBlog)
 .then(res => {

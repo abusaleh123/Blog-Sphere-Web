@@ -39,10 +39,10 @@ const email = user.email;
     return (
         <div className=" mx-auto">
            <div className="flex h-full border gap-6 items-center rounded-xl p-6">
-           <div className="">
-                <img className="rounded-xl w-[2000px] h-fit" src={photo} alt="" />
+           <div className="w-8/12">
+                <img className="rounded-xl w- h-[275px] object-cover" src={photo} alt="" />
             </div>
-            <div>
+            <div className="w-9/12">
                 <h1 className="text-4xl font-bold mb-4"> {title}</h1>
                 <p className="text-gray-500"> {short_description}</p>
                 <p className="text-gray-500 font-bold mt-2"><span className="font-bold text-black">Category: </span>{category}</p>
