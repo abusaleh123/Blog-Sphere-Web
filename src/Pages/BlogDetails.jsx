@@ -1,5 +1,5 @@
 import moment from "moment";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
@@ -36,11 +36,13 @@ const BlogDetails = () => {
   };
 
 
-    axios.get('http://localhost:5000/comments')
+    useEffect(() => {
+      axios.get('http://localhost:5000/comments')
     .then(res => {
       // console.log(res.data);
       setComments(res.data)
     })
+    },[])
 
 
 

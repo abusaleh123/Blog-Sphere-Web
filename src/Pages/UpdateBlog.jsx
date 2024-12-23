@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import React, { useContext } from 'react';
 import bg from '../../src/assets/Images/addBlogsbg.jpg'
 import axios from 'axios';
@@ -9,7 +9,8 @@ import moment from 'moment';
 const UpdateBlog = () => {
     const {user} = useContext(AuthContext)
     const Blogs = useLoaderData();
-    const {id} = useParams();
+    const navigate = useNavigate()
+
     // console.log(Blogs, id);
 
 
@@ -30,6 +31,15 @@ let date = moment().format(" Do MMM YY");
         axios.put(`http://localhost:5000/updateBlogs/${Blogs._id}`, updateBlog)
         .then(res => {
             console.log(res.data);
+            if(res.data.modifiedCount > 0){
+                Swal.fire({
+                    title: 'Blog Update Successfully!',
+                    text: 'You have Successfully Update Blog',
+                    icon: 'success',
+                    confirmButtonText: 'Close'
+                  })
+                }
+                navigate(`/blogs/${Blogs._id}`)
         })
         .catch(error => {
             console.log(error);

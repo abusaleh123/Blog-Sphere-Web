@@ -36,7 +36,8 @@ const router = createBrowserRouter( [
             },
             {
                 path: '/featured',
-                element:<Featured></Featured>
+                element:<Featured></Featured>,
+               
 
             },
             {
