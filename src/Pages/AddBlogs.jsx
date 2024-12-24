@@ -12,11 +12,12 @@ const AddBlogs = () => {
 const {user}  = useContext(AuthContext)
 
 
+
   
 
     const handleAddBlogs = e => {
         e.preventDefault();
-        let date = moment().format(" Do MMM YY");
+    
         const form = e.target;
         const title = form.title.value;
         const photo = form.photo.value;
@@ -28,6 +29,7 @@ const {user}  = useContext(AuthContext)
 
         console.log(title, photo, short_description, long_description, category);
         const email = user.email;
+        let date = moment().format(" Do MMM YYYY,  h:mm:ss a");
         const newBlog = {title, photo, short_description, long_description, category, email, date, name};
 
 axios.post('http://localhost:5000/blogs', newBlog)

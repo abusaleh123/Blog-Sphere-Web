@@ -1,18 +1,28 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase.init";
+import axios from "axios";
 
 export const AuthContext = createContext()
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState([]);
     const [loading, setLoading] = useState(true);
-  
+ 
+
+    const addToWishList = (blog) => {
+        setWishListBlogs((prevBlogs) => [...prevBlogs, blog]);
+    };
 
     const registerWithEmailPass = (email ,password) => {
         setLoading(true)
        return createUserWithEmailAndPassword(auth, email, password);
     
+    }
+
+    const signOutUser =() => {
+        setLoading(true);
+        return signOut(auth)
     }
 const signInWithEmailPass = (email ,password) => {
     setLoading(true);
@@ -30,7 +40,27 @@ const profileUpdate = (profileUpdate) => {
 useEffect( () => {
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
         setUser(currentUser)
-        setLoading(false)
+        if(currentUser?.email){
+            const user = {email: currentUser.email};
+
+            axios.post('http://localhost:5000/jwt', user, {
+                withCredentials: true
+            })
+            .then(res => {
+                console.log('login',res.data);
+                setLoading(false)
+            })
+        }
+        else{
+            axios.post('http://localhost:5000/logout', {}, {
+                withCredentials: true
+            })
+            .then(res => {
+                console.log('logout',res.data);
+                setLoading(false)
+            })
+        }
+       
     })
     return () => {
         unsubscribe()
@@ -42,7 +72,11 @@ useEffect( () => {
             setUser,
             registerWithEmailPass,
             signInWithEmailPass,
-            profileUpdate
+            profileUpdate,
+            signOutUser
+         
+
+           
     }
     return (
         <AuthContext.Provider value={authInfo}>

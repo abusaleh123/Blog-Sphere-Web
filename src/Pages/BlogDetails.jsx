@@ -17,34 +17,72 @@ const BlogDetails = () => {
 
   const [newComment, setNewComment] = useState("");
 
-  const handleCommentSubmit = (e) => {
-    e.preventDefault();
-    const email = user.email;
-    const user_name = user.displayName;
-    const user_profile = user.photoURL;
-    const blogs_id = blogDetails._id;
-    const brandNewComment = {blogs_id, email, user_name, user_profile, newComment};
-    // console.log(brandNewComment);
-    axios.post('http://localhost:5000/comments', brandNewComment)
-    .then( result => {
+//   const handleCommentSubmit = (e) => {
+//     e.preventDefault();
+//     const email = user.email;
+//     const user_name = user.displayName;
+//     const user_profile = user.photoURL;
+//     const blogs_id = blogDetails._id;
+//     console.log(blogs_id);
+//     const brandNewComment = {blogs_id, email, user_name, user_profile, newComment};
+
+
+// axios
+// .post("http://localhost:5000/comments", brandNewComment)
+// .then((result) => {
+//   console.log(result);
+//   setNewComment(""); 
+//   return axios.get(`http://localhost:5000/comments/${blogDetails._id}`);
+// })
+// .then((res) => {
+//   setComments(res.data); 
+// })
+// .catch((error) => {
+//   console.error("Error:", error);
+// })
+// .finally(() => {
+//   setIsSubmitting(false); 
+// });
+// };
+
+
+
+
+const handleCommentSubmit = (e) => {
+  e.preventDefault();
+  const email = user.email;
+  const user_name = user.displayName;
+  const user_profile = user.photoURL;
+  const blogs_id = blogDetails._id;
+
+  const brandNewComment = { blogs_id, email, user_name, user_profile, newComment };
+
+  axios
+    .post("http://localhost:5000/comments", brandNewComment)
+    .then((result) => {
       console.log(result);
-      setNewComment("");
+      setNewComment(""); // Clear the textarea
+      fetchComments(); // Refresh the comments list
     })
-    .catch(error => {
-      console.log(error);
+    .catch((error) => {
+      console.error( error);
+    });
+};
+
+useEffect(() => {
+  fetchComments();
+}, []);
+
+const fetchComments = () => {
+  axios
+    .get(`http://localhost:5000/comments/${blogDetails._id}`)
+    .then((res) => {
+      setComments(res.data);
     })
-  };
-
-
-    useEffect(() => {
-      axios.get('http://localhost:5000/comments')
-    .then(res => {
-      // console.log(res.data);
-      setComments(res.data)
-    })
-    },[])
-
-
+    .catch((error) => {
+      console.error(error);
+    });
+};
 
   
     return (

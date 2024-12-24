@@ -10,8 +10,10 @@ const AllBlogsCard = ({blog}) => {
     const {title, photo, category, short_description, long_description} = blog;
 const email = user?.email;
  let date = moment().format(" Do MMM YYYY,  h:mm:ss a");
+ const blog_id = blog._id;
+//  console.log(blog_id);
 // console.log(date);
-    const newWishList = {title,   photo, email, category, short_description, long_description, date};
+    const newWishList = {title,    photo, email, category, short_description, long_description, date, blog_id};
 
     const handleWisList = () => {
         axios.post('http://localhost:5000/wishList', newWishList)
