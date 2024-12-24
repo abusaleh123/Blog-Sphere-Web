@@ -8,7 +8,7 @@ import axios from 'axios';
 const RecentBlogsCard = ({rec}) => {
     const {user} = useContext(AuthContext);
     const {title, short_description, long_description, category, photo } = rec;
-    console.log(rec);
+    // console.log(rec);
  let date = moment().format(" Do MMM YYYY,  h:mm:ss a");
  const blog_id = rec._id;
 const email = user?.email

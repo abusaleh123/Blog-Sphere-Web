@@ -1,5 +1,6 @@
 
 import Lottie from 'lottie-react';
+import google from '../../assets/Images/google.png'
 
 import register from '../../assets/JSON/login.json';
 import bg from '../../assets/Images/rm222batch3-kul-15.jpg'
@@ -7,9 +8,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import auth from '../../firebase.init';
 
 const Login = () => {
-  const {signInWithEmailPass, setUser} = useContext(AuthContext);
+  const {signInWithEmailPass, setUser, signInWithGoogle, provider } = useContext(AuthContext);
   const navigate = useNavigate()
 
       const handleLogin = e => {
@@ -71,6 +73,38 @@ const Login = () => {
 
       }
 
+
+
+   const handleGoogleSignIn = () => {
+    signInWithGoogle(auth, provider)
+    .then(result => {
+      console.log(result);
+      setUser(result);
+      Swal.fire({
+        icon: "success",
+        title: "Login Successful!",
+        text: "You Are Successfully Loged In",
+      
+        confirmButtonText: 'Close',
+     
+        showCancelButton: false,
+        customClass: {
+          confirmButton: 'custom-confirm-button',
+        
+          popup: 'custom-popup', 
+          title: 'custom-title', 
+          icon: 'custom-icon' ,
+          
+        },
+        buttonsStyling: true
+      });
+      navigate('/')
+    })
+   .catch(error => {
+    console.log(error);
+   })
+   }
+
     return (
         <div
         className='py-10 '
@@ -121,11 +155,21 @@ const Login = () => {
         }}
        className='font-bold '><Link className='text-lg' to={'/register'}>Register</Link></span></p>
       </form>
+    
     </div>
+   
   </div>
+ 
+</div>
+<div>
+<div className="divider w-1/4 mx-auto">OR</div>
+    <button   onClick={handleGoogleSignIn} className='border border-gray-400 py-1 rounded-full flex items-center justify-center backdrop-blur-3xl bg-white/20 gap-4 lg:w-6/12 mx-auto px-4'>
+        <img className='w-10' src={google} alt="" />
+        <h1 className='md:text-lg  '>Login With Google</h1>
+      </button>
 </div>
             </div>
-      
+         
 
         </div>
             </div>

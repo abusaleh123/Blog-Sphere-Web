@@ -1,5 +1,5 @@
 import Lottie from 'lottie-react';
-
+import google from '../../assets/Images/google.png'
 import register from '../../assets/JSON/register.json';
 import bg from '../../assets/Images/rm222batch3-kul-15.jpg'
 import { Link, useNavigate } from 'react-router-dom';
@@ -7,10 +7,12 @@ import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
+import axios from 'axios';
+import auth from '../../firebase.init';
 
 const Register = () => {
 const navigate = useNavigate();
-  const {registerWithEmailPass, setUser, user, profileUpdate} = useContext(AuthContext);
+  const {registerWithEmailPass, setUser, user, profileUpdate,  signInWithGoogle, provider} = useContext(AuthContext);
   const handleRegister = e => {
     e.preventDefault()
     const form = e.target;
@@ -21,7 +23,7 @@ const navigate = useNavigate();
     const password = form.password.value;
     console.log(name, photo, email, password);
 
-    const newUser = {name, email, photo, password};
+    const newUser = {name, email, photo};
     const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/;
     if(password.length < 6){
         toast.error('Password Should be at least 6 character')
@@ -51,7 +53,17 @@ const navigate = useNavigate();
 
     registerWithEmailPass(email, password)
     .then(result => {
-      console.log(result);
+      // console.log(result);
+
+
+
+        axios.post('http://localhost:5000/users', newUser)
+        .then(res => {
+          console.log(res.data);
+        })
+
+
+
       profileUpdate({displayName: name, photoURL : photo})
       Swal.fire({
         icon: "success",
@@ -80,6 +92,38 @@ const navigate = useNavigate();
 
 
   }
+
+  const handleGoogleSignIn = () => {
+    signInWithGoogle(auth, provider)
+    .then(result => {
+      console.log(result);
+      setUser(result);
+      Swal.fire({
+        icon: "success",
+        title: "Registration Successful!",
+        text: "You Are Successfully Registered",
+      
+        confirmButtonText: 'Close',
+     
+        showCancelButton: false,
+        customClass: {
+          confirmButton: 'custom-confirm-button',
+        
+          popup: 'custom-popup', 
+          title: 'custom-title', 
+          icon: 'custom-icon' ,
+          
+        },
+        buttonsStyling: true
+      });
+      navigate('/')
+    })
+   .catch(error => {
+    console.log(error);
+   })
+   }
+
+
     return (
         <div
         className='py-10 '
@@ -144,7 +188,13 @@ const navigate = useNavigate();
   </div>
 </div>
             </div>
-      
+            <div>
+<div className="divider w-1/4 mx-auto">OR</div>
+    <button   onClick={handleGoogleSignIn} className='border border-gray-400 py-1 rounded-full flex items-center justify-center backdrop-blur-3xl bg-white/20 gap-4 lg:w-6/12 mx-auto px-4'>
+        <img className='w-10' src={google} alt="" />
+        <h1 className='md:text-lg  '>Register With Google</h1>
+      </button>
+</div>
 
         </div>
             </div>

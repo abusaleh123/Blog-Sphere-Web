@@ -10,6 +10,8 @@ import Login from "../Pages/RegisterLogin/Login";
 import BlogDetails from "../Pages/BlogDetails";
 import PrivateRoute from "../Provider/PrivateRoute";
 import UpdateBlog from "../Pages/UpdateBlog";
+import AllReviews from "../HomePage/AllReviews";
+import AddReviews from "../Pages/AddReviews";
 
 
 const router = createBrowserRouter( [
@@ -67,6 +69,14 @@ const router = createBrowserRouter( [
                     <UpdateBlog></UpdateBlog>
                 </PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/blogs/${params.id}`)
+            },
+            {
+                path: '/all-reviews',
+                element: <AllReviews></AllReviews>
+            },
+            {
+                path: '/addReview',
+                element: <AddReviews></AddReviews>
             }
            
         ]

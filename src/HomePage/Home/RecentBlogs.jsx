@@ -29,6 +29,7 @@ const RecentBlogs = () => {
                     recent.map(rec => <RecentBlogsCard key={rec._id} rec={rec}></RecentBlogsCard>)
                 }
             </div>
+            <p className="mt-20 border-t w-10/12 mx-auto"></p>
         </div>
     );
 };

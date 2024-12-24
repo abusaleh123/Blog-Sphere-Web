@@ -167,13 +167,10 @@ axios.post('http://localhost:5000/blogs', newBlog)
                       </option>
                       <option className='text-black' value="Tech Trends and Gadgets">Tech Trends and Gadgets
                       </option>
-                      <option className='text-black' value="Travel and Adventure">Travel and Adventure
-
-
-
-
-
-</option>
+                      <option className='text-black' value="Travel and Adventure">Travel and Adventure</option>
+                      <option className='text-black' value="Business">Business</option>
+                      <option className='text-black' value="LifeStyle">LifeStyle</option>
+                      <option className='text-black' value="Finance">Finance</option>
                   </select>
               </div>
 
