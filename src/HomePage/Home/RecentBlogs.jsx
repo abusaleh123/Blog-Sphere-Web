@@ -39,7 +39,7 @@ const RecentBlogs = () => {
                  }} 
                   
                   
-                className="text-6xl font-bold">Recent Blog Posts</motion.h1>
+                className="lg:text-6xl md:text-4xl text-2xl font-bold">Recent Blog Posts</motion.h1>
                 <motion.p
                   initial={{ opacity: 0, x: 0 }} 
                   animate={{ opacity: 1, x: 0 }}  
@@ -51,7 +51,7 @@ const RecentBlogs = () => {
                   }} 
                 className="text-gray-500 mt-3"> Explore the latest blog posts with concise summaries, trending topics, and insightful content, all updated for your interest</motion.p>
             </div>
-            <div className="mt-16 w-11/12 mx-auto text-center h-full items-center grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div className="mt-16 w-11/12 mx-auto text-center h-full items-center grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 gap-10">
                 {loading ? Array.from({length: 6 }).map((_, index) => <BlogSkeleton key={index}/>) :
                     recent.map(rec => <RecentBlogsCard key={rec._id} rec={rec}></RecentBlogsCard>)
                 }

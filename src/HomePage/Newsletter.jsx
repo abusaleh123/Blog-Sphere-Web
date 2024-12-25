@@ -18,7 +18,7 @@ const Newsletter = () => {
     return (
         <div className="flex flex-col text-center items-center lg:mt-28 mt-10 mb-10">
      <div>
-        <h1 className="lg:text-5xl font-bold mb-2">Subscribe to our Newsletter</h1>
+        <h1 className="lg:text-5xl md:text-4xl text-2xl font-bold mb-2">Subscribe to our Newsletter</h1>
         <p className="text-lg text-gray-500 w-3/4 text-center mx-auto mb-10">Subscribe to our email newsletter to get the latest posts delivered right to your email.</p>
      </div>
      <div className="flex border hover:border-[#6663D6]  focus:border-[#6663D6] shadow-xl rounded-xl   p-1">
@@ -29,7 +29,7 @@ const Newsletter = () => {
     type="email"
     name="email"
     placeholder="Your Email"
-    className="input w-72   border-none focus:outline-none  max-w-xl" />
+    className="input md:w-72   border-none focus:outline-none  max-w-xl" />
   
   <button  style={{ background: "linear-gradient(to top, #5350C3 10%, #8784F8 80%)"}} className="btn btn-ghost w-28 text-white text-lg ">Subscribe</button>
   

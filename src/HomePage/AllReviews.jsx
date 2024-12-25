@@ -51,7 +51,7 @@ const AllReviews = () => {
           <Link
             style={{ background: "linear-gradient(to top, #5350C3 10%, #8784F8 80%)" }}
             to={"/addReview"}
-            className="btn btn-ghost text-white text-lg"
+            className="btn btn-ghost text-white text-sm md:text-lg"
           >
             Add Review
           </Link>

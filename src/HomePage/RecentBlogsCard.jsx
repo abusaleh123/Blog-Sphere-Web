@@ -48,8 +48,7 @@ const email = user?.email
         <Zoom className='h-full'>
     <PhotoProvider className='h-full'>
       <motion.div
-        animate={{ x: 10 }}
-        transition={{ duration: 1 }}
+      
         className="lg:flex h-full border gap-6 justify-center mx-auto items-center rounded-xl p-6"
       >
 

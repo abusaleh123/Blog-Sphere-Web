@@ -4,12 +4,12 @@ import 'react-photo-view/dist/react-photo-view.css';
 
 const ReviewCard = ({rev}) => {
     return (
-      <div>
-      <section className="bg-white py-6">
-        <div className="mx-auto px-4 text-center">
-          <Zoom>
-          <PhotoProvider>
-            <div className="border backdrop-blur-lg border-[#5451C4] shadow-lg shadow-purple-100 rounded-lg p-6 hover:shadow-lg transition duration-300 h-full">
+      <div className='h-full'>
+      <section className="bg-white py-6 h-full">
+        <div className="mx-auto px-4 h-full text-center">
+          <Zoom className='h-full'>
+          <PhotoProvider className='h-full'>
+            <div className="border backdrop-blur-lg border-[#5451C4] shadow-lg shadow-purple-100 rounded-lg p-6 hover:shadow-lg transition duration-300 h-fit py-10">
  
               <PhotoView src={rev.photo}>
                 <img
@@ -22,7 +22,7 @@ const ReviewCard = ({rev}) => {
        
               <h3 className="text-lg font-semibold text-gray-800">{rev.name}</h3>
               <p className="text-sm text-gray-500">{rev.occupation}</p>
-              <p className="text-gray-600 mt-4 h-20">{rev.review}</p>
+              <p className="text-gray-600 mt-4 h-24">{rev.review}</p>
             </div>
           </PhotoProvider>
           </Zoom>

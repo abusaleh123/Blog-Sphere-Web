@@ -12,7 +12,7 @@ const Trending = () => {
             
     <section className="py-16 ">
   <div className="max-w-7xl mx-auto text-center">
-    <h2 className="text-6xl font-extrabold text-gray-800 mb-4">Trending Topics</h2>
+    <h2 className="lg:text-6xl md:text-4xl text-2xl font-extrabold text-gray-800 mb-4">Trending Topics</h2>
     <p className="text-lg text-gray-600 mb-12">Stay updated with the most talked about topics in the blogosphere.</p>
 
     <div className="grid h-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">

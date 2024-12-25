@@ -11,7 +11,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const navStyle =
- location.pathname === '/' ?"md:absolute top-0  z-10 md:bg-opacity-40 md:text-white w-11/12 md:left-8 lg:left-20"
+ location.pathname === '/' ?"md:absolute top-0  z-10 md:bg-opacity-40 md:text-white w-11/12 md:left-8 lg:left-18"
       
       : "  lg:w-11/12 mx-auto py-6 mx-auto";
 
@@ -31,10 +31,10 @@ const Navbar = () => {
   }
     return (
         <div className="w-full "> 
-        <div className={`navbar lg:w-11/12 mx-auto py-6 ${navStyle}`}>
+        <div className={`navbar w-full md:w-11/12 mx-auto py-6 ${navStyle}`}>
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div tabIndex={0} role="button" className="btn btn-ghost w-fit lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -67,13 +67,13 @@ const Navbar = () => {
      }
             </ul>
           </div>
-        <Link to={'/'} className="flex items-center">
-            <img className="w-12" src={logo} alt="" />
-        <a className="btn btn-ghost text-xl">BlogSphere</a>
+        <Link to={'/'} className="flex items-center gap-0">
+            <img className="md:w-12 w-10" src={logo} alt="" />
+        <a className="btn btn-ghost text-lg md:text-xl">BlogSphere</a>
         </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal gap-8 px-3 lg:text-lg font-semibold">
+          <ul className="menu menu-horizontal md:gap-6 lg:gap-8 px-3 lg:text-lg font-semibold">
         <NavLink  className={'nav'}  to={'/'}>Home</NavLink>
         {
           user && <NavLink className={'nav'}  to={'/addBlogs'}>Add Blogs</NavLink>
@@ -85,14 +85,14 @@ const Navbar = () => {
      }
           </ul>
         </div>
-        <div className="navbar-end gap-2">
+        <div className="navbar-end gap-1 md:gap-2">
          {
           user ? <>
-          <img className="w-12 h-12 object-cover rounded-full" src={user.photoURL} alt="" />
-          </> :   <Link to={'/register'} style={{ background: "linear-gradient(to top, #5350C3 0%, #8784F8 59%)"}} className="btn text-white lg:text-lg font-bold">Register</Link>
+          <img className="md:w-12 md:h-12 w-8 h-8 object-cover rounded-full" src={user.photoURL} alt="" />
+          </> :   <Link to={'/register'} style={{ background: "linear-gradient(to top, #5350C3 0%, #8784F8 59%)"}} className="btn text-white w-20 md:w-fit lg:text-lg text-sm font-bold">Register</Link>
          }
          {
-          user ?  <button onClick={handleLogOut} style={{ background: "linear-gradient(to top, #5350C3 0%, #8784F8 59%)"}} className="btn text-white lg:text-lg font-bold">Log Out</button> :  <Link to={'/login'} style={{ background: "linear-gradient(to top, #5350C3 0%, #8784F8 59%)"}} className="btn text-white lg:text-lg font-bold">Login</Link>
+          user ?  <button onClick={handleLogOut} style={{ background: "linear-gradient(to top, #5350C3 0%, #8784F8 59%)"}} className="btn text-white text-sm md:text-lg font-bold">Log Out</button> :  <Link to={'/login'} style={{ background: "linear-gradient(to top, #5350C3 0%, #8784F8 59%)"}} className="btn text-white md:text-lg text-sm w-14 md:w-fit font-bold">Login</Link>
          }
         </div>
       </div>
