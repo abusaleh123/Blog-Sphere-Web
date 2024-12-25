@@ -7,6 +7,7 @@ import axios from 'axios';
 import { motion } from "framer-motion";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import { Zoom } from 'react-awesome-reveal';
 const RecentBlogsCard = ({rec}) => {
     const {user} = useContext(AuthContext);
     const {title, short_description, long_description, category, photo } = rec;
@@ -44,7 +45,8 @@ const email = user?.email
     
     return (
     <div className="mx-auto h-full">
-    <PhotoProvider>
+        <Zoom className='h-full'>
+    <PhotoProvider className='h-full'>
       <motion.div
         animate={{ x: 10 }}
         transition={{ duration: 1 }}
@@ -94,6 +96,7 @@ const email = user?.email
         </div>
       </motion.div>
     </PhotoProvider>
+    </Zoom>
   </div>
 
 

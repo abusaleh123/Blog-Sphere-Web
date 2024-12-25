@@ -1,3 +1,4 @@
+import { Zoom } from 'react-awesome-reveal';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 
@@ -6,6 +7,7 @@ const ReviewCard = ({rev}) => {
       <div>
       <section className="bg-white py-6">
         <div className="mx-auto px-4 text-center">
+          <Zoom>
           <PhotoProvider>
             <div className="border backdrop-blur-lg border-[#5451C4] shadow-lg shadow-purple-100 rounded-lg p-6 hover:shadow-lg transition duration-300 h-full">
  
@@ -23,6 +25,7 @@ const ReviewCard = ({rev}) => {
               <p className="text-gray-600 mt-4 h-20">{rev.review}</p>
             </div>
           </PhotoProvider>
+          </Zoom>
         </div>
       </section>
     </div>
