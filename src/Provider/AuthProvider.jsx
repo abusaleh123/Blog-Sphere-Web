@@ -78,7 +78,9 @@ useEffect( () => {
             profileUpdate,
             signOutUser,
             signInWithGoogle,
-            provider
+            provider,
+            setLoading,
+            loading
          
 
            

@@ -5,26 +5,46 @@ import RecentBlogsCard from "../RecentBlogsCard";
 import { motion } from "framer-motion";
 
 const RecentBlogs = () => {
-    const {user} = useContext(AuthContext);
+    const {user, setLoading} = useContext(AuthContext);
     const [recent, setRecent] = useState([])
-    useEffect(() => {
-        axios.get('http://localhost:5000/home-blogs')
-        .then(res => {
-            console.log(res.data);
-            setRecent(res.data)
-        })
-        .catch(error => {
-            console.log(error);
-        })
-    },[])
+    // useEffect(() => {
+    //     axios.get('http://localhost:5000/home-blogs')
+    //     .then(res => {
+    //         console.log(res.data);
+    //         setRecent(res.data);
+    //         setLoading(true)
+    //     })
+    //     .catch(error => {
+    //         console.log(error);
+    //     })
+    // },[])
 
+
+
+
+    const [loading, setLoadingState] = useState(true); // Manage loading state
+
+    useEffect(() => {
+        setTimeout(() => {
+            axios.get('http://localhost:5000/home-blogs')
+                .then(res => {
+                    setRecent(res.data);
+                    setLoadingState(false); // Stop loading after data fetch
+                    setLoading(false);
+                })
+                .catch(error => {
+                    console.log(error);
+                    setLoadingState(false); // Stop loading on error
+                });
+        }, 2000); // Simulated delay (2 seconds)
+    }, []);
 
 
 
 
     return (
         <div className="flex flex-col items-center text-center
-         lg:mt-20">
+         lg:mt-20 mt-10">
             <div className="">
                 <motion.h1 
                  initial={{ opacity: 0, x: 0 }} 
@@ -39,7 +59,7 @@ const RecentBlogs = () => {
                   
                 className="text-6xl font-bold">Recent Blog Posts</motion.h1>
                 <motion.p
-                  initial={{ opacity: 0, x: 50 }} 
+                  initial={{ opacity: 0, x: 0 }} 
                   animate={{ opacity: 1, x: 0 }}  
                   transition={{
                     duration: 1.5,       

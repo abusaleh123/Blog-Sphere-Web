@@ -1,6 +1,6 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import logo from '../../assets/Images/blogger.png'
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { signOut } from "firebase/auth";
 import auth from "../../firebase.init";
@@ -8,7 +8,14 @@ import auth from "../../firebase.init";
 
 const Navbar = () => {
   const {user} = useContext(AuthContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const location = useLocation();
+  const navStyle =
+ location.pathname === '/' ?"md:absolute top-0  z-10 md:bg-opacity-40 md:text-white w-11/12 md:left-8 lg:left-20"
+      
+      : "  lg:w-11/12 mx-auto py-6 mx-auto";
+
+
 
 
 
@@ -23,8 +30,8 @@ const Navbar = () => {
   })
   }
     return (
-        <div className="w-full"> 
-        <div className="navbar lg:w-11/12 mx-auto py-6">
+        <div className="w-full "> 
+        <div className={`navbar lg:w-11/12 mx-auto py-6 ${navStyle}`}>
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
