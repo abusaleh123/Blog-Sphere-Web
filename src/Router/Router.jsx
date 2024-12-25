@@ -12,17 +12,20 @@ import PrivateRoute from "../Provider/PrivateRoute";
 import UpdateBlog from "../Pages/UpdateBlog";
 import AllReviews from "../HomePage/AllReviews";
 import AddReviews from "../Pages/AddReviews";
+import ErrorPage from "../Pages/ErrorPage";
 
 
 const router = createBrowserRouter( [
     {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        errorElement: <ErrorPage></ErrorPage>
     } ,
    
     {
         path: '/',
         element: <Base></Base>,
+   
         children: [
             {
                 path: '/addBlogs',
