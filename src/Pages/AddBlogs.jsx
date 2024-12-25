@@ -75,7 +75,7 @@ axios.post('https://new-blog-assignment-11-server.vercel.app/blogs', newBlog)
                 <title>Blog Sphere || Add Blogs</title>
              
             </Helmet>
-       <div className='border-2 w-full lg:w-5/12 lg:p-20 rounded-xl backdrop-blur-md'   >
+       <div className='border-2 w-full md:w-9/12 lg:w-8/12 xl:w-5/12 lg:p-20 rounded-xl backdrop-blur-md'   >
       <div className="w-full lg:w-full border border-white-600 backdrop-blur-xl p-8 rounded-lg shadow-lg">
       <div >
           <form onSubmit={handleAddBlogs}  className="space-y-4 gap-6">

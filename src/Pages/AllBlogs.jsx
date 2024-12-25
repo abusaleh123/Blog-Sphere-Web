@@ -44,11 +44,11 @@ useEffect(() => {
              
             </Helmet>
              <div className="flex items-center justify-center mb-10 ">
-                    <h1 className="lg:text-6xl text-2xl font-bold">All Blogs</h1>
+                    <h1 className="lg:text-6xl md:text-4xl text-2xl font-bold">All Blogs</h1>
                 </div>
            
-<div className="flex  items-center gap-6">
-            <div className="mx-auto  text-center flex items-center justify-center">
+<div className="flex flex-col-reverse md:flex-row items-center gap-6">
+            <div className="mx-auto  text-center flex items-center justify-center ">
                
             <select
                       id="category"
@@ -83,7 +83,7 @@ style={{ background: "linear-gradient(to top, #5350C3 0%, #8784F8 59%)"}} classN
             </div>
          
             </div>
-            <div className="mt-16 w-11/12 mx-auto grid grid-cols-1  md:grid-cols-2 gap-10">
+            <div className="mt-16 w-11/12 mx-auto grid grid-cols-1 md:grid-cols-1  xl:grid-cols-2 gap-10">
             {loading
           ? Array.from({ length: 6 }).map((_, index) => <BlogSkeleton key={index} />) // Show skeleton loaders while loading
           : allBlogs.map((blog) => <AllBlogsCard key={blog._id} blog={blog} />)}
