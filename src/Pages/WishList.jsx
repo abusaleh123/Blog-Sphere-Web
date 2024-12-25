@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 import useAxiosSecure from '../Hooks/useAxiosSecure';
 
 const WishList = () => {
-    const {user, setLoading} = useContext(AuthContext)
+    const {user, loading,  setLoading} = useContext(AuthContext)
      const [wish, setWish] = useState([]);
 
    const axiosSecure = useAxiosSecure();
@@ -23,7 +23,7 @@ const WishList = () => {
                     console.log(res.data);
                     // setLoading(true);
                     setWish(res.data);
-                    setLoading(true)
+                    setLoading(false)
                 })
                 .catch(error => {
                     console.log(error);

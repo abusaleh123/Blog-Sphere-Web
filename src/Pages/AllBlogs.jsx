@@ -1,29 +1,54 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AllBlogsCard from "../Components/AllBlogsCard";
+import { AuthContext } from "../Provider/AuthProvider";
+import BlogSkeleton from "../Components/BlogSkeleton";
 
 
 const AllBlogs = () => {
     const [allBlogs, setAllBlogs] = useState([]);
     const [filter, setFilter] = useState('');
     const [search, setSearch] = useState('');
+    const {loading, setLoading} = useContext(AuthContext);
 
 console.log(filter);
 
+// useEffect(() => {
+//     const fetchAllBlogs = async () => {
+//         const {data} = await axios.get(`http://localhost:5000/all-blogs?filter=${filter}&&search=${search}`)
+//         setAllBlogs(data);
+        
+//     }
+//     fetchAllBlogs()
+
+// },[filter, search])
+
+// const handleReset = () => {
+//     setFilter('')
+//     setSearch('')
+// }
+
+
 useEffect(() => {
     const fetchAllBlogs = async () => {
-        const {data} = await axios.get(`http://localhost:5000/all-blogs?filter=${filter}&&search=${search}`)
+      setLoading(true); // Set loading to true when fetching starts
+      try {
+        const { data } = await axios.get(`http://localhost:5000/all-blogs?filter=${filter}&&search=${search}`);
         setAllBlogs(data);
-        
-    }
-    fetchAllBlogs()
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      } finally {
+        setLoading(false); // Set loading to false after the data is fetched
+      }
+    };
+    fetchAllBlogs();
+  }, [filter, search]);
 
-},[filter, search])
+  const handleReset = () => {
+    setFilter('');
+    setSearch('');
+  };
 
-const handleReset = () => {
-    setFilter('')
-    setSearch('')
-}
 
     return (
         <div className="flex items-center justify-center flex-col mt-10 pb-10 ">
@@ -67,10 +92,10 @@ style={{ background: "linear-gradient(to top, #5350C3 0%, #8784F8 59%)"}} classN
             </div>
          
             </div>
-            <div className="mt-16 w-11/12 mx-auto grid grid-cols-2 gap-10">
-                {
-                    allBlogs.map(blog => <AllBlogsCard key={blog._id} blog={blog}></AllBlogsCard>)
-                }
+            <div className="mt-16 w-11/12 mx-auto grid grid-cols-1  md:grid-cols-2 gap-10">
+            {loading
+          ? Array.from({ length: 6 }).map((_, index) => <BlogSkeleton key={index} />) // Show skeleton loaders while loading
+          : allBlogs.map((blog) => <AllBlogsCard key={blog._id} blog={blog} />)}
             </div>
 
         </div>

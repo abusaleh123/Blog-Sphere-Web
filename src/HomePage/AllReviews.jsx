@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import Loading from "../Components/Loading";
+import ReviewSkeleton from "../Components/ReviewSkeleton";
 
 const AllReviews = () => {
   const {loading, setLoading} = useContext(AuthContext)
@@ -21,7 +22,7 @@ const AllReviews = () => {
 
 
         useEffect(() => {
-          setTimeout(() => {
+        
             axios
               .get("http://localhost:5000/all-reviews")
               .then((res) => {
@@ -32,7 +33,7 @@ const AllReviews = () => {
                 console.error(error);
                 setLoading(false);
               });
-          }, 2000); 
+      
         }, []);
 
     return (
@@ -50,7 +51,7 @@ const AllReviews = () => {
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 text-center gap-6">
     
 {loading
-? Array.from({length: 6 }).map((_, index) => <Loading key={index}/>)
+? Array.from({length: 6 }).map((_, index) => <ReviewSkeleton key={index}/>)
   :  allReview.map( review => (
         <>
              <div className=" border backdrop-blur-lg border-[#5451C4] shadow-lg shadow-purple-100 rounded-lg p-6 hover:shadow-lg transition duration-300 h-full">

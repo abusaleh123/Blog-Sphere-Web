@@ -1,19 +1,23 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ReviewCard from './ReviewCard';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProvider';
+import TestimonialSkeleton from '../Components/TestimonilaSkeleton';
 
 const Tips = () => {
 
 
     const [review, setReviews] = useState([]);
+    const {loading, setLoading} = useContext(AuthContext)
 
 console.log(review);
     useEffect(() => {
         axios.get('http://localhost:5000/limit-reviews')
         .then(res => {
             console.log(res.data);
-            setReviews(res.data)
+            setReviews(res.data);
+            setLoading(false)
         })
     },[])
 
@@ -42,7 +46,7 @@ console.log(review);
         
 
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
-{
+{loading ? Array.from({length: 6 }).map((_, index) => <TestimonialSkeleton key={index}/>) :
     review.map(rev => <ReviewCard key={rev._id} rev={rev}></ReviewCard>)
 }
 </div>

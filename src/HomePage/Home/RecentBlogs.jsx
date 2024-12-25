@@ -3,44 +3,26 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
 import RecentBlogsCard from "../RecentBlogsCard";
 import { motion } from "framer-motion";
+import BlogSkeleton from "../../Components/BlogSkeleton";
 
 const RecentBlogs = () => {
-    const {user, setLoading} = useContext(AuthContext);
+    const {user, loading, setLoading} = useContext(AuthContext);
     const [recent, setRecent] = useState([])
-    // useEffect(() => {
-    //     axios.get('http://localhost:5000/home-blogs')
-    //     .then(res => {
-    //         console.log(res.data);
-    //         setRecent(res.data);
-    //         setLoading(true)
-    //     })
-    //     .catch(error => {
-    //         console.log(error);
-    //     })
-    // },[])
-
-
-
-
-    const [loading, setLoadingState] = useState(true); // Manage loading state
-
+  
     useEffect(() => {
-        setTimeout(() => {
+
             axios.get('http://localhost:5000/home-blogs')
                 .then(res => {
                     setRecent(res.data);
-                    setLoadingState(false); // Stop loading after data fetch
+               
                     setLoading(false);
                 })
                 .catch(error => {
                     console.log(error);
-                    setLoadingState(false); // Stop loading on error
+            
                 });
-        }, 2000); // Simulated delay (2 seconds)
+
     }, []);
-
-
-
 
     return (
         <div className="flex flex-col items-center text-center
@@ -70,7 +52,7 @@ const RecentBlogs = () => {
                 className="text-gray-500 mt-3"> Explore the latest blog posts with concise summaries, trending topics, and insightful content, all updated for your interest</motion.p>
             </div>
             <div className="mt-16 w-11/12 mx-auto text-center h-full items-center grid grid-cols-1 lg:grid-cols-2 gap-10">
-                {
+                {loading ? Array.from({length: 6 }).map((_, index) => <BlogSkeleton key={index}/>) :
                     recent.map(rec => <RecentBlogsCard key={rec._id} rec={rec}></RecentBlogsCard>)
                 }
             </div>
