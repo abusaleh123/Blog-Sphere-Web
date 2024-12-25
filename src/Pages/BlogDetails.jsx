@@ -1,49 +1,22 @@
 import moment from "moment";
 import { useContext, useEffect, useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
 import bg from '../assets/Images/blog-detailsbg.jpg'
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 
 const BlogDetails = () => {
     const blogDetails = useLoaderData();
     const {user} = useContext(AuthContext);
-   
+    const {id} = useParams();
+    console.log(id);
     // console.log(email);
-
   const [comments, setComments] = useState([]);
- 
-
   const [newComment, setNewComment] = useState("");
-
-//   const handleCommentSubmit = (e) => {
-//     e.preventDefault();
-//     const email = user.email;
-//     const user_name = user.displayName;
-//     const user_profile = user.photoURL;
-//     const blogs_id = blogDetails._id;
-//     console.log(blogs_id);
-//     const brandNewComment = {blogs_id, email, user_name, user_profile, newComment};
-
-
-// axios
-// .post("http://localhost:5000/comments", brandNewComment)
-// .then((result) => {
-//   console.log(result);
-//   setNewComment(""); 
-//   return axios.get(`http://localhost:5000/comments/${blogDetails._id}`);
-// })
-// .then((res) => {
-//   setComments(res.data); 
-// })
-// .catch((error) => {
-//   console.error("Error:", error);
-// })
-// .finally(() => {
-//   setIsSubmitting(false); 
-// });
-// };
+const axiosSecure = useAxiosSecure()
+console.log(blogDetails.id);
 
 
 
@@ -74,8 +47,8 @@ useEffect(() => {
 }, []);
 
 const fetchComments = () => {
-  axios
-    .get(`http://localhost:5000/comments/${blogDetails._id}`)
+axiosSecure
+    .get(`/comments/${blogDetails._id}`)
     .then((res) => {
       setComments(res.data);
     })
@@ -125,7 +98,7 @@ const fetchComments = () => {
     
         <div id="commentArea" className="mb-6">
          {
-          user.email === blogDetails.email ? <>
+          user?.email === blogDetails.email ? <>
             <h1 className="text-red-500">You Cannot Comment on your own blog</h1>
           </> : <>
            <textarea

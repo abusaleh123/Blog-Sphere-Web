@@ -21,9 +21,9 @@ const WishList = () => {
             axiosSecure.get(`/wishList?email=${user.email}`)
                 .then(res => {
                     console.log(res.data);
-                    
                     // setLoading(true);
                     setWish(res.data);
+                    setLoading(true)
                 })
                 .catch(error => {
                     console.log(error);

@@ -4,7 +4,7 @@ import logo from '../assets/Images/blogger.png'
 const Footer = () => {
     return (
         <div>
-           <footer className="footer footer-center bg-gray-400  p-10">
+           <footer className="footer footer-center bg-gray-300  p-10">
   <aside>
    <img className='w-24' src={logo} alt="" />
     <p className="font-bold">

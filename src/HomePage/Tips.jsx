@@ -31,8 +31,13 @@ console.log(review);
       Hear from our valued readers about how our blogs have inspired and helped them.
     </p>
             </div>
-            <div className='text-center'>
+            <div className='text-center flex justify-center gap-2'>
     <Link  style={{ background: "linear-gradient(to top, #5350C3 10%, #8784F8 80%)"}} to={'/addReview'} className='btn btn-ghost text-white text-lg '> Add Review</Link>
+
+    <div className='text-center'>
+    <Link  style={{ background: "linear-gradient(to top, #5350C3 10%, #8784F8 80%)"}} to={'/all-reviews'} className='btn btn-ghost text-white text-lg '> View All Review</Link>
+</div>
+
 </div>
         
 
@@ -42,9 +47,7 @@ console.log(review);
 }
 </div>
 
-<div className='text-center'>
-    <Link  style={{ background: "linear-gradient(to top, #5350C3 10%, #8784F8 80%)"}} to={'/all-reviews'} className='btn btn-ghost text-white text-lg w-2/4'> View All Review</Link>
-</div>
+
 <p className="mt-20 mb-20 border-t w-10/12 mx-auto"></p>
 
         </div>

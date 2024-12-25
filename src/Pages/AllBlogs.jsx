@@ -26,7 +26,7 @@ const handleReset = () => {
 }
 
     return (
-        <div className="flex items-center justify-center flex-col mt-10  ">
+        <div className="flex items-center justify-center flex-col mt-10 pb-10 ">
              <div className="flex items-center justify-center mb-10 ">
                     <h1 className="lg:text-6xl text-2xl font-bold">All Blogs</h1>
                 </div>
