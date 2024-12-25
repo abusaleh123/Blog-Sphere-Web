@@ -21,12 +21,12 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log(email, password);
+        // console.log(email, password);
 
 
         signInWithEmailPass(email, password)
         .then(result => {
-          console.log(result);
+          // console.log(result);
           setUser(result);
           Swal.fire({
             icon: "success",
@@ -50,7 +50,7 @@ const Login = () => {
 
         })
         .catch(error => {
-          console.log(error);
+          // console.log(error);
           Swal.fire({
             icon: "error",
             title: "Login Failed!",
@@ -78,7 +78,7 @@ const Login = () => {
    const handleGoogleSignIn = () => {
     signInWithGoogle(auth, provider)
     .then(result => {
-      console.log(result);
+      // console.log(result);
       setUser(result);
       Swal.fire({
         icon: "success",
@@ -101,7 +101,7 @@ const Login = () => {
       navigate('/')
     })
    .catch(error => {
-    console.log(error);
+    // console.log(error);
    })
    }
 

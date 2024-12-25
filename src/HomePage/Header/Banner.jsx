@@ -48,8 +48,8 @@ const Banner = () => {
   <div style={{backgroundImage: `url(${banner})`, backgroundSize: 'cover', backgroundPosition: 'center' }} className=''> 
  <div className='py-72 text-center  inset-0 bg-black/80'>
  <p className='text-4xl mb-0 p-0 text-gray-400'>Everything you need</p>
- <h1 className="text-8xl mt-0 p-0 text-white font-semibold">
- welcome to <span className="text-[#5B58CB] text-9xl font-extrabold"> our blog</span></h1>
+ <h1 className="lg:text-8xl text-6xl mt-0 p-0 text-white font-semibold">
+ welcome to our<span className="text-[#5B58CB] lg:text-9xl text-7xl font-extrabold">Blog Sphere</span></h1>
  <p className="text-lg mt-2 text-white"><span className='text-[#5B58CB] font-bold '>Home</span> / bloge-sphere</p>
  </div>
   </div>

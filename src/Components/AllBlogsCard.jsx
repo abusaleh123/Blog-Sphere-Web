@@ -17,9 +17,9 @@ const email = user?.email;
     const newWishList = {title,    photo, email, category, short_description, long_description, date, blog_id};
 
     const handleWisList = () => {
-        axios.post('http://localhost:5000/wishList', newWishList)
+        axios.post('https://new-blog-assignment-11-server.vercel.app/wishList', newWishList)
         .then( res => {
-            console.log(res.data);
+            // console.log(res.data);
             Swal.fire({
                 icon: "success",
                 title: "Wish List Add Successful!",

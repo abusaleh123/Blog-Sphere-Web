@@ -28,9 +28,9 @@ let date = moment().format(" Do MMM YY");
         const email = user?.email
 
         const updateBlog = {title, photo, short_description, long_description, category, email, date, name}
-        axios.put(`http://localhost:5000/updateBlogs/${Blogs._id}`, updateBlog)
+        axios.put(`https://new-blog-assignment-11-server.vercel.app/updateBlogs/${Blogs._id}`, updateBlog)
         .then(res => {
-            console.log(res.data);
+            // console.log(res.data);
             if(res.data.modifiedCount > 0){
                 Swal.fire({
                     title: 'Blog Update Successfully!',
@@ -42,7 +42,7 @@ let date = moment().format(" Do MMM YY");
                 navigate(`/blogs/${Blogs._id}`)
         })
         .catch(error => {
-            console.log(error);
+            // console.log(error);
         })
 
     }

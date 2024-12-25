@@ -21,7 +21,7 @@ const navigate = useNavigate();
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, photo, email, password);
+    // console.log(name, photo, email, password);
 
     const newUser = {name, email, photo};
     const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/;
@@ -57,9 +57,9 @@ const navigate = useNavigate();
 
 
 
-        axios.post('http://localhost:5000/users', newUser)
+        axios.post('https://new-blog-assignment-11-server.vercel.app/users', newUser)
         .then(res => {
-          console.log(res.data);
+          // console.log(res.data);
         })
 
 
@@ -87,7 +87,7 @@ const navigate = useNavigate();
       navigate('/')
     })
     .catch(error => {
-      console.log(error);
+      // console.log(error);
     })
 
 
@@ -96,7 +96,7 @@ const navigate = useNavigate();
   const handleGoogleSignIn = () => {
     signInWithGoogle(auth, provider)
     .then(result => {
-      console.log(result);
+      // console.log(result);
       setUser(result);
       Swal.fire({
         icon: "success",
@@ -119,7 +119,7 @@ const navigate = useNavigate();
       navigate('/')
     })
    .catch(error => {
-    console.log(error);
+    // console.log(error);
    })
    }
 

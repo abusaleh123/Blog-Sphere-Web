@@ -11,7 +11,7 @@ const AllReviews = () => {
 
 
         // useEffect(() => {
-        //     axios.get('http://localhost:5000/all-reviews')
+        //     axios.get('https://new-blog-assignment-11-server.vercel.app/all-reviews')
         //     .then(res => {
         //         console.log(res.data);
         //         setAllReview(res.data)
@@ -24,7 +24,7 @@ const AllReviews = () => {
         useEffect(() => {
         
             axios
-              .get("http://localhost:5000/all-reviews")
+              .get("https://new-blog-assignment-11-server.vercel.app/all-reviews")
               .then((res) => {
                 setLoading(false);
                 setAllReview(res.data);
@@ -93,7 +93,7 @@ export default AllReviews;
 //   useEffect(() => {
 //     setTimeout(() => {
 //       axios
-//         .get("http://localhost:5000/all-reviews")
+//         .get("https://new-blog-assignment-11-server.vercel.app/all-reviews")
 //         .then((res) => {
 //           setAllReview(res.data);
 //           setLoading(false);

@@ -25,9 +25,9 @@ const AddReviews = () => {
         let date = moment().format(" Do MMM YYYY,  h:mm:ss a");
         const newReview = {name,  photo, occupation, review, date};
 
-axios.post('http://localhost:5000/all-reviews', newReview)
+axios.post('https://new-blog-assignment-11-server.vercel.app/all-reviews', newReview)
 .then(res => {
-    console.log(res.data);
+    // console.log(res.data);
 
     if(res.data.insertedId){
         Swal.fire({
@@ -53,7 +53,7 @@ axios.post('http://localhost:5000/all-reviews', newReview)
     navigate('/all-reviews')
 })
 .catch(error => {
-    console.log(error);
+    // console.log(error);
 })
         
     }

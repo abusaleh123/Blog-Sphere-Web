@@ -11,11 +11,11 @@ const AllBlogs = () => {
     const [search, setSearch] = useState('');
     const {loading, setLoading} = useContext(AuthContext);
 
-console.log(filter);
+// console.log(filter);
 
 // useEffect(() => {
 //     const fetchAllBlogs = async () => {
-//         const {data} = await axios.get(`http://localhost:5000/all-blogs?filter=${filter}&&search=${search}`)
+//         const {data} = await axios.get(`https://new-blog-assignment-11-server.vercel.app/all-blogs?filter=${filter}&&search=${search}`)
 //         setAllBlogs(data);
         
 //     }
@@ -33,7 +33,7 @@ useEffect(() => {
     const fetchAllBlogs = async () => {
       setLoading(true); // Set loading to true when fetching starts
       try {
-        const { data } = await axios.get(`http://localhost:5000/all-blogs?filter=${filter}&&search=${search}`);
+        const { data } = await axios.get(`https://new-blog-assignment-11-server.vercel.app/all-blogs?filter=${filter}&&search=${search}`);
         setAllBlogs(data);
       } catch (error) {
         console.error("Error fetching blogs:", error);

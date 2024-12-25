@@ -20,13 +20,13 @@ const WishList = () => {
         if (user && user.email) {
             axiosSecure.get(`/wishList?email=${user.email}`)
                 .then(res => {
-                    console.log(res.data);
+                    // console.log(res.data);
                     // setLoading(true);
                     setWish(res.data);
                     setLoading(false)
                 })
                 .catch(error => {
-                    console.log(error);
+                    // console.log(error);
                 });
         }
     }, [user.email]);
@@ -46,9 +46,9 @@ const WishList = () => {
           confirmButtonText: "Yes, delete it!"
         }).then((result) => {
           if (result.isConfirmed) {
-            axios.delete(`http://localhost:5000/wishList/${id}`)
+            axios.delete(`https://new-blog-assignment-11-server.vercel.app/wishList/${id}`)
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 // Filter the local state and remove the deleted item
                 const newData = wish.filter(item => item._id !== id);
                 setWish(newData);
@@ -59,7 +59,7 @@ const WishList = () => {
                   });
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
             });
           }
         });

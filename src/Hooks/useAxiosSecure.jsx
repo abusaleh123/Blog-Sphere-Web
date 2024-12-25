@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://new-blog-assignment-11-server.vercel.app',
     withCredentials: true
 })
 
@@ -17,13 +17,13 @@ useEffect(() => {
     axiosInstance.interceptors.response.use(response => {
         return response
     }, error => {
-        console.log('error caught in interceptors', error);
+        // console.log('error caught in interceptors', error);
 
         if(error.status === 401 || error.status === 403){
-            console.log('need to log out user');
+            // console.log('need to log out user');
             signOutUser()
             .then(() => {
-                console.log('looged out user');
+                // console.log('looged out user');
                     Swal.fire({
                             icon: "error",
                             title: "Unauthorized Access",
@@ -45,7 +45,7 @@ useEffect(() => {
                 navigate('/login')
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
             })
         }
         return Promise.reject(error)

@@ -11,14 +11,14 @@ const RecentBlogs = () => {
   
     useEffect(() => {
 
-            axios.get('http://localhost:5000/home-blogs')
+            axios.get('https://new-blog-assignment-11-server.vercel.app/home-blogs')
                 .then(res => {
                     setRecent(res.data);
                
                     setLoading(false);
                 })
                 .catch(error => {
-                    console.log(error);
+                    // console.log(error);
             
                 });
 

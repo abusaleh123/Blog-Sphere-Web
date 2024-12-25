@@ -61,14 +61,14 @@ const router = createBrowserRouter( [
             {
                 path: '/blogs/:id',
                 element: <BlogDetails></BlogDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/blogs/${params.id}`)
+                loader: ({params}) => fetch(`https://new-blog-assignment-11-server.vercel.app/blogs/${params.id}`)
             },
             {
                 path: '/updateBlog/:id',
                 element: <PrivateRoute>
                     <UpdateBlog></UpdateBlog>
                 </PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/blogs/${params.id}`)
+                loader: ({params}) => fetch(`https://new-blog-assignment-11-server.vercel.app/blogs/${params.id}`)
             },
             {
                 path: '/all-reviews',

@@ -7,7 +7,7 @@ const Featured = () => {
         const [featured, setFeatured] = useState([])
             // console.log(featured);
       useEffect(() => {
-        axios.get('http://localhost:5000/featuredBlogs')
+        axios.get('https://new-blog-assignment-11-server.vercel.app/featuredBlogs')
         .then(res => {
             console.log(res.data);
             setFeatured(res.data);

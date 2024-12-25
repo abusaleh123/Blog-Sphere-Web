@@ -11,12 +11,12 @@ const BlogDetails = () => {
     const blogDetails = useLoaderData();
     const {user} = useContext(AuthContext);
     const {id} = useParams();
-    console.log(id);
+    // console.log(id);
     // console.log(email);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
 const axiosSecure = useAxiosSecure()
-console.log(blogDetails.id);
+// console.log(blogDetails.id);
 
 
 
@@ -31,9 +31,9 @@ const handleCommentSubmit = (e) => {
   const brandNewComment = { blogs_id, email, user_name, user_profile, newComment };
 
   axios
-    .post("http://localhost:5000/comments", brandNewComment)
+    .post("https://new-blog-assignment-11-server.vercel.app/comments", brandNewComment)
     .then((result) => {
-      console.log(result);
+      // console.log(result);
       setNewComment(""); // Clear the textarea
       fetchComments(); // Refresh the comments list
     })

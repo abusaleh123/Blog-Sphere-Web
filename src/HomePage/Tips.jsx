@@ -11,11 +11,11 @@ const Tips = () => {
     const [review, setReviews] = useState([]);
     const {loading, setLoading} = useContext(AuthContext)
 
-console.log(review);
+// console.log(review);
     useEffect(() => {
-        axios.get('http://localhost:5000/limit-reviews')
+        axios.get('https://new-blog-assignment-11-server.vercel.app/limit-reviews')
         .then(res => {
-            console.log(res.data);
+            // console.log(res.data);
             setReviews(res.data);
             setLoading(false)
         })

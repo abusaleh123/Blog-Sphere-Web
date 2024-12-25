@@ -27,14 +27,14 @@ const {user}  = useContext(AuthContext)
         const name = user.displayName;
  
 
-        console.log(title, photo, short_description, long_description, category);
+        // console.log(title, photo, short_description, long_description, category);
         const email = user.email;
         let date = moment().format(" Do MMM YYYY,  h:mm:ss a");
         const newBlog = {title, photo, short_description, long_description, category, email, date, name};
 
-axios.post('http://localhost:5000/blogs', newBlog)
+axios.post('https://new-blog-assignment-11-server.vercel.app/blogs', newBlog)
 .then(res => {
-    console.log(res.data);
+    // console.log(res.data);
 
     if(res.data.insertedId){
         Swal.fire({
@@ -59,7 +59,7 @@ axios.post('http://localhost:5000/blogs', newBlog)
     }
 })
 .catch(error => {
-    console.log(error);
+    // console.log(error);
 })
         
     }

@@ -22,11 +22,11 @@ const Navbar = () => {
   const handleLogOut = () => {
     signOut(auth)
   .then(result => {
-    console.log(result);
+    // console.log(result);
     navigate('/login')
   })
   .catch(error => {
-    console.log(error);
+    // console.log(error);
   })
   }
     return (
