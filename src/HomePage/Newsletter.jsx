@@ -10,7 +10,7 @@ const Newsletter = () => {
             toast.success('Thank you for subscribing to our newsletter')
         }
         else{
-            toast.error('Enter Your Email Email First')
+            toast.error('Enter Your Email First')
         }
      
         form.reset('')

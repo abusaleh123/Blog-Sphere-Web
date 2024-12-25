@@ -46,11 +46,38 @@ const Banner = () => {
 <div className=' mx-auto hidden md:block'>
   {/* parent */}
   <div style={{backgroundImage: `url(${banner})`, backgroundSize: 'cover', backgroundPosition: 'center' }} className=''> 
- <div className='py-72 text-center  inset-0 bg-black/80'>
+ <div
+  
+ className='py-72 text-center  inset-0 bg-black/80'>
+  <motion.div
+   initial={{ opacity: 0, y: -50 }} 
+   animate={{ opacity: 1, y: 0 }} 
+   transition={{
+     duration: 4, 
+     ease: "easeInOut", 
+     repeat: Infinity,
+      repeatType: "reverse"
+   }}
+  >
  <p className='text-4xl mb-0 p-0 text-gray-400'>Everything you need</p>
- <h1 className="lg:text-8xl text-6xl mt-0 p-0 text-white font-semibold">
- welcome to our<span className="text-[#5B58CB] lg:text-9xl text-7xl font-extrabold">Blog Sphere</span></h1>
+ <motion.h1 
+    
+ className="lg:text-8xl text-6xl mt-0 p-0 text-white font-semibold">
+ Welcome to our<motion.span 
+ animate={{
+  // y:50,
+  color:['#4287f5', '#ce42f5']
+}}
+transition={{
+duration: 2,
+ease: "easeInOut",
+repeat: Infinity
+
+}}
+ 
+ className="text-[#5B58CB] lg:text-9xl text-7xl font-extrabold"> Blog Sphere</motion.span></motion.h1>
  <p className="text-lg mt-2 text-white"><span className='text-[#5B58CB] font-bold '>Home</span> / bloge-sphere</p>
+ </motion.div>
  </div>
   </div>
 

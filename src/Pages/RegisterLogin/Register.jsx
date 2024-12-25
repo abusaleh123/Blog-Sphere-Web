@@ -33,7 +33,7 @@ const navigate = useNavigate();
       Swal.fire({
         icon: "error",
         title: "Password Validation Wrong",
-        text: "Password Should be at least a Capital letter, numeric character, and numeric character",
+        text: "Password Should be at least a Capital letter, a Special Character, and a Numeric character",
          
         confirmButtonText: 'Close',
      
