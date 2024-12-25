@@ -75,7 +75,7 @@ const FeaturedCard = ({ feature }) => {
     const data = Array.isArray(feature) ? feature : [feature];
 
     return (
-        <div className="lg:w-8/12 md:w-10/12 w-11/12 mx-auto space-y-20 mt-10  ">
+        <div className="lg:w-8/12 md:w-11/12 w-11/12 mx-auto space-y-20 mt-10  ">
            
         
             <DataTable

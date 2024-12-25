@@ -60,7 +60,7 @@ const AllReviews = () => {
 
       <div
         ref={observerRef} 
-        className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 text-center gap-6 ${
+        className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 text-center gap-6 ${
           isVisible ? "animate-fadeIn" : "opacity-0"
         }`} 
       >
