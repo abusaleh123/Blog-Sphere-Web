@@ -5,6 +5,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
 import bg from '../assets/Images/blog-detailsbg.jpg'
 import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { Helmet } from "react-helmet";
 
 
 const BlogDetails = () => {
@@ -60,6 +61,11 @@ axiosSecure
   
     return (
       <div  style={{backgroundImage :`url(${bg})`, backgroundSize: 'cover', backgroundPosition: 'center'}} className=" rounded-xl backdrop-blur-md mx-auto p-4 space-y-20 gap-6">
+           <Helmet>
+                <meta charSet="utf-8" />
+                <title>Blog Sphere || Blog Details</title>
+             
+            </Helmet>
    <div className="max-w-6xl mx-auto">
     <div className="flex flex-col justify-center  gap-2  shadow-md rounded-lg p-6">
       <div className="border p-10 rounded-xl backdrop-blur-lg">

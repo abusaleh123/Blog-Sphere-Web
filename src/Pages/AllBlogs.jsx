@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import AllBlogsCard from "../Components/AllBlogsCard";
 import { AuthContext } from "../Provider/AuthProvider";
 import BlogSkeleton from "../Components/BlogSkeleton";
+import { Helmet } from "react-helmet";
 
 
 const AllBlogs = () => {
@@ -11,34 +12,19 @@ const AllBlogs = () => {
     const [search, setSearch] = useState('');
     const {loading, setLoading} = useContext(AuthContext);
 
-// console.log(filter);
 
-// useEffect(() => {
-//     const fetchAllBlogs = async () => {
-//         const {data} = await axios.get(`https://new-blog-assignment-11-server.vercel.app/all-blogs?filter=${filter}&&search=${search}`)
-//         setAllBlogs(data);
-        
-//     }
-//     fetchAllBlogs()
-
-// },[filter, search])
-
-// const handleReset = () => {
-//     setFilter('')
-//     setSearch('')
-// }
 
 
 useEffect(() => {
     const fetchAllBlogs = async () => {
-      setLoading(true); // Set loading to true when fetching starts
+      setLoading(true);
       try {
         const { data } = await axios.get(`https://new-blog-assignment-11-server.vercel.app/all-blogs?filter=${filter}&&search=${search}`);
         setAllBlogs(data);
       } catch (error) {
         console.error("Error fetching blogs:", error);
       } finally {
-        setLoading(false); // Set loading to false after the data is fetched
+        setLoading(false); 
       }
     };
     fetchAllBlogs();
@@ -52,6 +38,11 @@ useEffect(() => {
 
     return (
         <div className="flex items-center justify-center flex-col mt-10 pb-10 ">
+             <Helmet>
+                <meta charSet="utf-8" />
+                <title>Blog Sphere || All Blogs</title>
+             
+            </Helmet>
              <div className="flex items-center justify-center mb-10 ">
                     <h1 className="lg:text-6xl text-2xl font-bold">All Blogs</h1>
                 </div>

@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import FeaturedCard from '../Components/FeaturedCard';
 import bg from '../assets/Images/blog-detailsbg.jpg'
+import { Helmet } from 'react-helmet';
 
 const Featured = () => {
         const [featured, setFeatured] = useState([])
@@ -21,6 +22,11 @@ const Featured = () => {
     
     return (
         <div style={{backgroundImage: `url(${bg})`}} className='py-10'>
+               <Helmet>
+                <meta charSet="utf-8" />
+                <title>Blog Sphere || Featured Blogs</title>
+             
+            </Helmet>
               <div className="flex items-center justify-center mb-10 ">
                     <h1 className="lg:text-6xl text-2xl font-bold mt-14">Featured Blogs
                     </h1>

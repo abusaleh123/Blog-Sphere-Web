@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
 import axios from 'axios';
 import auth from '../../firebase.init';
+import { Helmet } from 'react-helmet';
 
 const Register = () => {
 const navigate = useNavigate();
@@ -129,6 +130,11 @@ const navigate = useNavigate();
         className='py-10 '
         style={{backgroundImage: `url(${bg})`}}
        >
+           <Helmet>
+                <meta charSet="utf-8" />
+                <title>Blog Sphere || Register</title>
+             
+            </Helmet>
             <div  className='  lg:flex-row flex-col-reverse flex pr-4 w-10/12 mx-auto rounded-xl md:w-8/12  justify-center items-center backdrop-blur-2xl shadow-2xl'>
 
         

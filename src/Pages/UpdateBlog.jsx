@@ -5,6 +5,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Provider/AuthProvider';
 import moment from 'moment';
+import { Helmet } from "react-helmet";
 
 const UpdateBlog = () => {
     const {user} = useContext(AuthContext)
@@ -48,6 +49,11 @@ let date = moment().format(" Do MMM YY");
     }
     return (
          <div style={{backgroundImage: `url(${bg})`, backgroundSize: 'cover'}} className="bg-white py-10    flex items-center justify-center ">
+               <Helmet>
+                <meta charSet="utf-8" />
+                <title>Blog Sphere || Update Blog</title>
+             
+            </Helmet>
               <div className='border-2 w-full lg:w-5/12 lg:p-20 rounded-xl backdrop-blur-md'   >
              <div className="w-full lg:w-full border border-white-600 backdrop-blur-xl p-8 rounded-lg shadow-lg">
              <div >

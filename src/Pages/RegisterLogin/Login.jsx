@@ -9,6 +9,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import auth from '../../firebase.init';
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
   const {signInWithEmailPass, setUser, signInWithGoogle, provider } = useContext(AuthContext);
@@ -110,6 +111,13 @@ const Login = () => {
         className='py-10 '
         style={{backgroundImage: `url(${bg})`}}
        >
+   <Helmet>
+                <meta charSet="utf-8" />
+                <title>Blog Sphere || Login</title>
+             
+            </Helmet>
+
+
             <div  className='  lg:flex-row flex-col-reverse flex pr-4 w-10/12 mx-auto rounded-xl md:w-8/12  justify-center items-center backdrop-blur-2xl shadow-2xl'>
 
         

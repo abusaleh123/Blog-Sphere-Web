@@ -7,6 +7,7 @@ import axios from 'axios';
 import DataTable from 'react-data-table-component';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../Hooks/useAxiosSecure';
+import { Helmet } from 'react-helmet';
 
 const WishList = () => {
     const {user, loading,  setLoading} = useContext(AuthContext)
@@ -141,6 +142,11 @@ const WishList = () => {
     //   
     return (
         <div style={{backgroundImage: `url(${bg})`}} className='py-10' >
+               <Helmet>
+                <meta charSet="utf-8" />
+                <title>Blog Sphere || Wish List</title>
+             
+            </Helmet>
             <div className="lg:w-8/12 md:w-10/12 w-11/12 mx-auto space-y-10 mt-0  ">
 
         

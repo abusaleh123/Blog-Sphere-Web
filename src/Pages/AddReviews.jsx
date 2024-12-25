@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../Provider/AuthProvider';
 import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 const AddReviews = () => {
     const navigate = useNavigate()
 
@@ -65,6 +66,11 @@ axios.post('https://new-blog-assignment-11-server.vercel.app/all-reviews', newRe
 
     return (
          <div style={{backgroundImage: `url(${bg})`, backgroundSize: 'cover'}} className="bg-white py-10    flex items-center justify-center ">
+               <Helmet>
+                <meta charSet="utf-8" />
+                <title>Blog Sphere || Add Review</title>
+             
+            </Helmet>
               <div className='border-2 w-full lg:w-5/12 lg:p-20 rounded-xl backdrop-blur-md'   >
              <div className="w-full lg:w-full border border-white-600 backdrop-blur-xl p-8 rounded-lg shadow-lg">
              <div >

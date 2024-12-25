@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useInView } from "react-intersection-observer"; 
 import { AuthContext } from "../Provider/AuthProvider";
 import ReviewSkeleton from "../Components/ReviewSkeleton";
+import { Helmet } from "react-helmet";
 
 const AllReviews = () => {
   const { loading, setLoading } = useContext(AuthContext);
@@ -36,6 +37,11 @@ const AllReviews = () => {
 
   return (
     <div className="mt-10 w-10/12 mx-auto py-10">
+         <Helmet>
+                <meta charSet="utf-8" />
+                <title>Blog Sphere || All Reviews</title>
+             
+            </Helmet>
       <div className="text-center">
         <h2 className="text-6xl font-bold text-gray-800 mb-4">All Reviews</h2>
         <p className="text-gray-600 mb-4">
