@@ -67,9 +67,9 @@ const Navbar = () => {
      }
             </ul>
           </div>
-        <Link to={'/'} className="flex items-center gap-0">
+        <Link to={'/'} className="flex items-center  justify-center gap-0">
             <img className="md:w-12 w-10" src={logo} alt="" />
-        <a className="btn btn-ghost text-lg md:text-xl">BlogSphere</a>
+        <a className="btn btn-ghost text-lg hidden md:inline-flex md:text-xl">BlogSphere</a>
         </Link>
         </div>
         <div className="navbar-center hidden lg:flex">

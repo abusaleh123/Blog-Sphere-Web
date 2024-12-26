@@ -14,23 +14,23 @@ const Footer = () => {
 
 
 
-<footer className="bg-gray-900 text-white py-10">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-5 md:px-10">
+<footer className=" text-white py-10">
+      <div className="container mx-auto text-2xl text-gray-600 lg:flex  md:grid md:grid-cols-2 justify-between  gap-8 px-5 md:px-10">
         {/* Logo and Description */}
-        <div>
+        <div className='mb-4 lg:w-1/4'>
        <img className='w-16' src={logo} alt="" />
-          <p className="mt-3 text-sm">
+          <p className="mt-3  text-lg">
           Stay connected with insightful blogs, latest updates, and creative ideas. Explore topics, follow us, and keep learning every day!
           </p>
-          <p className="mt-5 text-xs">&copy; 2020 Blog Sphere. All Rights Reserved.</p>
+          <p className="mt-5 text-lg">&copy; 2020 Blog Sphere. All Rights Reserved.</p>
         </div>
 
         {/* Links Section */}
-        <div>
-          <h2 className="text-lg font-semibold border-b-2 border-blue-500 inline-block pb-1">
-            Links
+        <div className='mb-4'>
+          <h2 className="text-2xl  font-bold border-b-2  inline-block pb-1">
+           Pages
           </h2>
-          <ul className="mt-3 space-y-2 text-sm">
+          <ul className="mt-3 space-y-2 text-lg">
             <Link to={'/'}>Home</Link>
             <li><Link to={'/addBlogs'}>Add Blogs</Link></li>
             <li>All Blogs</li>
@@ -40,26 +40,26 @@ const Footer = () => {
         </div>
 
         {/* Others Section */}
-        <div>
-          <h2 className="text-lg font-semibold border-b-2 border-blue-500 inline-block pb-1">
-            Others
+        <div className='mb-4'>
+          <h2 className="text-2xl  font-bold border-b-2  inline-block pb-1">
+          Categories
           </h2>
-          <ul className="mt-3 space-y-2 text-sm">
-            <Link >Terms of Service</Link>
-            <li>Privacy Policy</li>
-            <li>Something goes here</li>
-            <li>Add Reviews</li>
-            <li>Blog</li>
+          <ul className="mt-3 space-y-2 text-lg">
+            <Link >Web Development and Design</Link>
+            <li>Gaming and Entertainment</li>
+            <li>Health and Wellness</li>
+            <li>Tech Trends and Gadgets</li>
+            <li>Travel and Adventure</li>
           </ul>
         </div>
 
         {/* Social Media Section */}
-        <div>
-          <h2 className="text-lg font-semibold border-b-2 border-blue-500 inline-block pb-1">
+        <div className='text-lg'>
+          <h2 className="text-2xl  font-bold border-b-2  inline-block pb-1">
             Others
           </h2>
-          <p className="mt-3 text-sm">Follow us on Social Media</p>
-          <div className="flex space-x-3 items-center  mt-4 ">
+          <p className="mt-3 text-lg font-bold">Follow us on Social Media</p>
+          <div className="flex space-x-3 items-center   mt-4 ">
             <a href="https://www.facebook.com/mdabusalehnoor9" target='_blank' className="text-blue-500">
             <FaFacebook className='text-2xl' />
             </a>
@@ -73,7 +73,7 @@ const Footer = () => {
             <FaLinkedin className = "text-2xl"  />
             </a>
           </div>
-         <p className="text-sm mt-6">Md Abu Saleh Noor</p>
+         <p className="text-lg mt-6">Md Abu Saleh Noor</p>
         </div>
       </div>
     </footer>
