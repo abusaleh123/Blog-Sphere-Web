@@ -47,11 +47,14 @@ const Login = () => {
             },
             buttonsStyling: true
           });
-          navigate('/')
+          navigate('/');
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
 
         })
         .catch(error => {
-          // console.log(error);
+          console.log(error);
           Swal.fire({
             icon: "error",
             title: "Login Failed!",
@@ -100,6 +103,12 @@ const Login = () => {
         buttonsStyling: true
       });
       navigate('/')
+    })
+    .then(() => {
+      navigate('/')
+      setTimeout(() => {
+          window.location.reload()
+      }, 1000)
     })
    .catch(error => {
     // console.log(error);

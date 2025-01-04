@@ -54,9 +54,7 @@ const navigate = useNavigate();
 
     registerWithEmailPass(email, password)
     .then(result => {
-      // console.log(result);
-
-
+    
 
         axios.post('https://new-blog-assignment-11-server.vercel.app/users', newUser)
         .then(res => {
@@ -85,7 +83,12 @@ const navigate = useNavigate();
         buttonsStyling: true
       });
       setUser(result);
-      navigate('/')
+      navigate('/');
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+  
+      
     })
     .catch(error => {
       // console.log(error);
@@ -98,6 +101,7 @@ const navigate = useNavigate();
     signInWithGoogle(auth, provider)
     .then(result => {
       // console.log(result);
+    
       setUser(result);
       Swal.fire({
         icon: "success",
@@ -117,7 +121,12 @@ const navigate = useNavigate();
         },
         buttonsStyling: true
       });
+    })
+    .then(() => {
       navigate('/')
+      setTimeout(() => {
+          window.location.reload()
+      }, 1000)
     })
    .catch(error => {
     // console.log(error);
