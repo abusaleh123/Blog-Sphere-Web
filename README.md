@@ -3,9 +3,7 @@
 ### Purpose:
  A blog website aims to share insights, connect audiences, inspire creativity, educate, provide updates, promote brands, express opinions, showcase expertise, and foster community engagement globally.
 
-## Live URL : 
-- https://blog-sphere-55e89.web.app
-- https://blog-sphere-55e89.firebaseapp.com
+
 
 ## Key Features :
 
@@ -35,6 +33,24 @@
 - React-data-table
 - React-Icons
 - React-intersection-observer
+
+
+
+
+
+## Installation: 
+
+Run ``` npm install ``` to install project dependencies
+
+
+# Live Link:  
+- https://chill-game-6f6c6.web.app
+
+
+## Live URL : 
+- https://blog-sphere-55e89.web.app
+- https://blog-sphere-55e89.firebaseapp.com
+
 #
 #
 
