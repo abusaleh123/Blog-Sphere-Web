@@ -3,7 +3,10 @@
 ### Purpose:
  A blog website aims to share insights, connect audiences, inspire creativity, educate, provide updates, promote brands, express opinions, showcase expertise, and foster community engagement globally.
 
+## About This Project
 
+![Alt text](https://github.com/abusaleh123/Blog-Sphere/blob/cc24b0e9fdf86740f5af3b20e9a5ec575dead18c/Screenshot%202025-01-08%20121422.png)
+![Alt text](https://github.com/abusaleh123/Blog-Sphere/blob/cc24b0e9fdf86740f5af3b20e9a5ec575dead18c/Screenshot%202025-01-08%20121404.png)
 
 ## Key Features :
 
@@ -99,8 +102,6 @@
 Run ``` npm install ``` to install project dependencies
 
 
-# Live Link:  
-- https://chill-game-6f6c6.web.app
 
 
 ## Live URL : 
