@@ -38,6 +38,62 @@
 
 
 
+
+
+
+## Dependencies
+
+- [AOS](https://github.com/michalsnik/aos) - ^2.3.4
+- [Axios](https://github.com/axios/axios) - ^1.7.9
+- [EmailJS](https://github.com/emailjs-com/emailjs-sdk) - ^4.0.3
+- [Firebase](https://github.com/firebase/firebase-js-sdk) - ^11.0.2
+- [Framer Motion](https://github.com/framer/motion) - ^11.15.0
+- [KA Table](https://github.com/komarovalexander/ka-table) - ^11.3.0
+- [LocalForage](https://github.com/localForage/localForage) - ^1.10.0
+- [Lottie React](https://github.com/Gamote/lottie-react) - ^2.4.0
+- [Match Sorter](https://github.com/kentcdodds/match-sorter) - ^8.0.0
+- [Moment](https://github.com/moment/moment) - ^2.30.1
+- [React](https://github.com/facebook/react) - ^18.3.1
+- [React Awesome Reveal](https://github.com/dennismorello/react-awesome-reveal) - ^4.3.1
+- [React Data Table Component](https://github.com/jbetancur/react-data-table-component) - ^7.6.2
+- [React DOM](https://github.com/facebook/react) - ^18.3.1
+- [React Helmet](https://github.com/nfl/react-helmet) - ^6.1.0
+- [React Icons](https://github.com/react-icons/react-icons) - ^5.4.0
+- [React Intersection Observer](https://github.com/thebuilder/react-intersection-observer) - ^9.14.0
+- [React Loading Skeleton](https://github.com/dvtng/react-loading-skeleton) - ^3.5.0
+- [React Photo View](https://github.com/felixrieseberg/React-Photo-View) - ^1.2.6
+- [React Router DOM](https://github.com/remix-run/react-router) - ^7.1.0
+- [React Toastify](https://github.com/fkhadra/react-toastify) - ^11.0.2
+- [Sort By](https://github.com/kvnneff/sort-by) - ^1.2.0
+- [SweetAlert2](https://github.com/sweetalert2/sweetalert2) - ^11.15.3
+- [Swiper](https://github.com/nolimits4web/swiper) - ^11.1.15
+
+
+
+
+
+## Dev Dependencies
+
+- [@eslint/js](https://github.com/eslint/js-eslint) - ^9.17.0
+- [@types/react](https://github.com/DefinitelyTyped/DefinitelyTyped) - ^18.3.17
+- [@types/react-dom](https://github.com/DefinitelyTyped/DefinitelyTyped) - ^18.3.5
+- [@vitejs/plugin-react](https://github.com/vitejs/vite) - ^4.3.4
+- [Autoprefixer](https://github.com/postcss/autoprefixer) - ^10.4.20
+- [DaisyUI](https://github.com/saadeghi/daisyui) - ^4.12.22
+- [ESLint](https://github.com/eslint/eslint) - ^9.17.0
+- [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) - ^7.37.2
+- [eslint-plugin-react-hooks](https://github.com/facebook/react) - ^5.0.0
+- [eslint-plugin-react-refresh](https://github.com/facebook/react) - ^0.4.16
+- [Globals](https://github.com/ljharb/cls) - ^15.13.0
+- [PostCSS](https://github.com/postcss/postcss) - ^8.4.49
+- [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) - ^3.4.17
+- [Vite](https://github.com/vitejs/vite) - ^6.0.3
+
+
+
+
+
+
 ## Installation: 
 
 Run ``` npm install ``` to install project dependencies
