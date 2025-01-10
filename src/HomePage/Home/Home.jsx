@@ -6,6 +6,7 @@ import Newsletter from "../Newsletter";
 import Tips from "../Tips";
 import Trending from "../Trending";
 import RecentBlogs from "./RecentBlogs";
+import Contact from "../Contact";
 
 
 const Home = () => {
@@ -22,6 +23,7 @@ const Home = () => {
             <Newsletter></Newsletter>
             <Tips></Tips>
             <Trending></Trending>
+            <Contact></Contact>
             <Footer></Footer>
         </div>
     );
