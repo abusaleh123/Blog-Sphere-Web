@@ -5,8 +5,8 @@
 
 ## About This Project
 
-![Alt text](https://github.com/abusaleh123/Blog-Sphere/blob/cc24b0e9fdf86740f5af3b20e9a5ec575dead18c/Screenshot%202025-01-08%20121422.png)
-![Alt text](https://github.com/abusaleh123/Blog-Sphere/blob/cc24b0e9fdf86740f5af3b20e9a5ec575dead18c/Screenshot%202025-01-08%20121404.png)
+![Alt text](https://github.com/abusaleh123/Blog-Sphere-Web/blob/aa0d823c02afabdf3c2a207b2f8a21c1731d216a/Screenshot%202025-01-08%20121422.png)
+![Alt text](https://github.com/abusaleh123/Blog-Sphere-Web/blob/aa0d823c02afabdf3c2a207b2f8a21c1731d216a/Screenshot%202025-01-08%20121404.png)
 
 ## Key Features :
 
