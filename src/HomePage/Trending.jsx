@@ -87,7 +87,7 @@ const Trending = () => {
     </div>
   </div>
 </section>
-<p className="mt-20 mb-20 border-t w-10/12 mx-auto"></p>
+<p className=" border-t w-10/12 mx-auto"></p>
         </div>
     );
 };

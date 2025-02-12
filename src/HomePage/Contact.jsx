@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const Contact = () => {
+  const {theme} = useContext(AuthContext)
 
 
     const onSubmit = async (event) => {
@@ -46,11 +49,11 @@ const Contact = () => {
       }
     };
       return (
-          <div className="bg-[#FCFCFF] lg:mt-20 mt-10 mb-10">
+          <div className={`  ${theme === 'dark' ? 'bg-black': 'bg-[#FCFCFF]'} lg:pt-20  pb-10`}>
               <section id="contact" class=" p-8">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="lg:text-6xl md:text-4xl text-2xl  font-bold text-gray-800 mb-4">Contact Us</h2>
-      <p class="text-lg text-gray-600 mb-6">Have any questions or feedback? We would love to hear from you!</p>
+      <h2 class={`lg:text-6xl md:text-4xl text-2xl  font-bold ${theme === 'dark' ? 'text-white': 'text-gray-800'} mb-4`}>Contact Us</h2>
+      <p class={`text-lg ${theme === 'dark' ? 'text-white/60' : 'text-gray-600'}  mb-6`}>Have any questions or feedback? We would love to hear from you!</p>
   
       <form onSubmit={onSubmit} method="POST" class="space-y-4">
       <div className="md:flex gap-6 ">
