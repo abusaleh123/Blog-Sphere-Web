@@ -153,7 +153,7 @@ const Navbar = () => {
         <input onClick={toggleTheme} type="checkbox" className="toggle toggle-info" defaultChecked />
           {user ? (
             <>
-            <input onClick={toggleTheme} type="checkbox" className="toggle toggle-info" defaultChecked />
+          
               <img className="md:w-12 md:h-12 w-8 h-8 object-cover rounded-full" src={user.photoURL} alt="User" />
               <button onClick={handleLogOut} style={{ background: "linear-gradient(to top, #5350C3 0%, #8784F8 59%)" }} className="btn text-white text-sm md:text-lg font-bold">Log Out</button>
             </>
