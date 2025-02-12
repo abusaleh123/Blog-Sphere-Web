@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../assets/Images/blogger.png'
 import { Link } from 'react-router-dom';
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Footer = () => {
+  const {theme} = useContext(AuthContext)
     return (
         <div>
      
@@ -14,10 +16,10 @@ const Footer = () => {
 
 
 
-<footer className=" text-white py-10">
+<footer className={`${theme === 'dark' ? 'bg-black' :'bg-white'} text-white py-10`}>
       <div className="container mx-auto text-2xl text-gray-600 lg:flex  md:grid md:grid-cols-2 justify-between  gap-8 px-5 md:px-10">
         {/* Logo and Description */}
-        <div className='mb-4 lg:w-1/4'>
+        <div className={`mb-4  ${theme === 'dark' ? 'text-white/50' : ''} lg:w-1/4`}>
        <img className='w-16' src={logo} alt="" />
           <p className="mt-3  text-lg">
           Stay connected with insightful blogs, latest updates, and creative ideas. Explore topics, follow us, and keep learning every day!
@@ -26,8 +28,8 @@ const Footer = () => {
         </div>
 
         {/* Links Section */}
-        <div className='mb-4'>
-          <h2 className="text-2xl  font-bold border-b-2  inline-block pb-1">
+        <div className={`mb-4  ${theme === 'dark' ? 'text-white/50' : ''}`}>
+          <h2 className={`text-2xl   ${theme === 'dark' ? 'text-white/80' : ''} font-bold border-b-2  inline-block pb-1`}>
            Pages
           </h2>
           <ul className="mt-3 space-y-2 text-lg">
@@ -40,8 +42,8 @@ const Footer = () => {
         </div>
 
         {/* Others Section */}
-        <div className='mb-4'>
-          <h2 className="text-2xl  font-bold border-b-2  inline-block pb-1">
+        <div className={`mb-4  ${theme === 'dark' ? 'text-white/50' : ''}`}>
+          <h2 className={`text-2xl ${theme === 'dark' ? 'text-white/80' : ''} font-bold border-b-2  inline-block pb-1`}>
           Categories
           </h2>
           <ul className="mt-3 space-y-2 text-lg">
@@ -54,8 +56,8 @@ const Footer = () => {
         </div>
 
         {/* Social Media Section */}
-        <div className='text-lg'>
-          <h2 className="text-2xl  font-bold border-b-2  inline-block pb-1">
+        <div className={`text-lg  ${theme === 'dark' ? 'text-white/50' : ''}`}>
+          <h2 className={`text-2xl  ${theme === 'dark' ? 'text-white/80' : ''} font-bold border-b-2  inline-block pb-1`}>
             Others
           </h2>
           <p className="mt-3 text-lg font-bold">Follow us on Social Media</p>

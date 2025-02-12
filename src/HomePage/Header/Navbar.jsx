@@ -30,48 +30,48 @@ const Navbar = () => {
     if (location.pathname === '/') {
       return scrollPosition === 0 
         ? "md:absolute top-0 z-10 md:bg-opacity-40 md:text-white w-11/12" 
-        : "sticky top-0 z-50 bg-white w-11/12 mx-auto shadow-md";
+        : `sticky top-0 z-50 ${theme === 'dark' ? 'bg-black shadow-xl shadow-white/10 text-white' : 'bg-white '}  w-11/12 mx-auto shadow-md`;
     } else if (location.pathname === '/addBlogs') {
-      return "bg-white w-11/12 mx-auto";
+      return `  ${theme === 'dark' ? 'bg-black shadow-xl shadow-white/10 text-white' : 'bg-white'} w-11/12 mx-auto`;
     } 
     else if(location.pathname === '/allBlogs') {
-      return 'bg-white'
+      return `  ${theme === 'dark' ? 'bg-black shadow-xl shadow-white/10 text-white' : 'bg-white'}  mx-auto`
         
     }
     else if(location.pathname === '/featured') {
-      return 'bg-white'
+      return  `  ${theme === 'dark' ? 'bg-black shadow-xl shadow-white/10 text-white' : 'bg-white'}  mx-auto`
         
     }
     else if(location.pathname === '/wishList') {
-      return 'bg-white'
+      return  `  ${theme === 'dark' ? 'bg-black shadow-xl shadow-white/10 text-white' : 'bg-white'}  mx-auto`
         
     }
     else if(location.pathname === '/addReview') {
-      return 'bg-white'
+      return  `  ${theme === 'dark' ? 'bg-black shadow-xl shadow-white/10 text-white' : 'bg-white'}  mx-auto`
         
     }
     else if(location.pathname === '/all-reviews') {
-      return 'bg-white'
+      return  `  ${theme === 'dark' ? 'bg-black shadow-xl shadow-white/10 text-white' : 'bg-white'}  mx-auto`
         
     }
     else if(location.pathname === '/register') {
-      return 'bg-white'
+      return  `  ${theme === 'dark' ? 'bg-black shadow-xl shadow-white/10 text-white' : 'bg-white'}  mx-auto`
         
     }
     else if(location.pathname === '/login') {
-      return 'bg-white'
+      return  `  ${theme === 'dark' ? 'bg-black shadow-xl shadow-white/10 text-white' : 'bg-white'}  mx-auto`
         
     }
     else if(location.pathname === '/contact') {
-      return 'bg-white'
+      return  `  ${theme === 'dark' ? 'bg-black shadow-xl shadow-white/10 text-white' : 'bg-white'}  mx-auto`
         
     }
     else if(location.pathname.startsWith('/blogs/') && location.pathname.split('/')[4] === user?._id) {
-      return 'bg-white'
+      return  `  ${theme === 'dark' ? 'bg-black shadow-xl shadow-white/10 text-white' : 'bg-white'}  mx-auto`
         
     }
     else if(location.pathname.startsWith('/updateBlog/') && location.pathname.split('/')[4] === user?._id) {
-      return 'bg-white'
+      return  `  ${theme === 'dark' ? 'bg-black shadow-xl shadow-white/10 text-white' : 'bg-white'}  mx-auto`
         
     }
 
