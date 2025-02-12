@@ -9,7 +9,7 @@ const Tips = () => {
 
 
     const [review, setReviews] = useState([]);
-    const {loading, setLoading} = useContext(AuthContext)
+    const {loading, setLoading, theme} = useContext(AuthContext)
 
 // console.log(review);
     useEffect(() => {
@@ -28,10 +28,10 @@ const Tips = () => {
 
 
     return (
-        <div className='w-10/12 mx-auto'>
+        <div className={`w-12/12 mx-auto  ${theme === 'dark' ? 'bg-black': 'bg-white'}`}>
             <div className='text-center'>
-            <h2 className="lg:text-6xl md:text-4xl text-2xl font-bold text-gray-800 mb-4">What Our Readers Say</h2>
-    <p className="text-gray-600 mb-4">
+            <h2 className={`lg:text-6xl ${theme === 'dark' ? 'text-white': 'text-black'} md:text-4xl text-2xl font-bold text-gray-800 mb-4`}>What Our Readers Say</h2>
+    <p className={`${theme === 'dark' ? 'text-white/60' : ''} text-lg mb-4`}>
       Hear from our valued readers about how our blogs have inspired and helped them.
     </p>
             </div>
@@ -52,7 +52,7 @@ const Tips = () => {
 </div>
 
 
-<p className="mt-20 mb-20 border-t w-10/12 mx-auto"></p>
+<p className="mt-20 pb-20 border-t w-10/12 mx-auto"></p>
 
         </div>
     );
