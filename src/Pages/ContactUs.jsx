@@ -1,8 +1,10 @@
+import { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const ContactUs = () => {
-
+const {theme} = useContext(AuthContext)
 
     const onSubmit = async (event) => {
       event.preventDefault();
@@ -46,11 +48,11 @@ const ContactUs = () => {
       }
     };
       return (
-          <div className="bg-[#FCFCFF] lg:mt-16 mt-10 mb-10 min-h-screen">
+          <div className={` ${theme === 'dark' ? 'bg-black': 'bg-[#FCFCFF]'}  lg:pt-16 pt-10 mb-10 min-h-screen`}>
               <section id="contact" class=" p-8">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="lg:text-6xl md:text-4xl text-2xl  font-bold text-gray-800 mb-4">Contact Us</h2>
-      <p class="text-lg text-gray-600 mb-6">
+      <h2 class={`lg:text-6xl md:text-4xl text-2xl  ${theme === 'dark' ? 'text-white': 'text-gray-800'} font-bold  mb-4`}>Contact Us</h2>
+      <p class={`text-lg ${theme === 'dark' ? 'text-white/60': 'text-gray-600'}  mb-6`}>
       Welcome to our Contact page! We’re excited to hear from you. Whether you have a suggestion, feedback, or a question about our blog, this is the place to reach out. We believe in creating a community where your voice matters, and your input helps us grow and improve. Our team is dedicated to providing you with the best experience, and we’re here to address any concerns or inquiries you may have. Simply fill out the form below with your message, and we’ll get back to you as soon as possible. Whether it’s a suggestion for a new topic, feedback on our posts, or a question about our content, we’re eager to connect. If you have any suggestions or questions, don’t hesitate to message us. Your thoughts and opinions are invaluable, and we look forward to hearing from you!</p>
   
       <form onSubmit={onSubmit} method="POST" class="space-y-4">
@@ -59,13 +61,13 @@ const ContactUs = () => {
   
       <div className="form-control w-full">
             <label className="label">
-              <span className="label-text">Name</span>
+              <span className={`label-text ${theme === 'dark' ? 'text-white/60': 'text-gray-600'}`}>Name</span>
             </label>
             <input type="text" placeholder="Your Name" name="name" className="input focus:outline-none input-bordered" required />
           </div>
       <div className="form-control w-full">
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className={`label-text ${theme === 'dark' ? 'text-white/60': 'text-gray-600'}`}>Email</span>
             </label>
             <input type="email" placeholder="Your Email" name="email" className="input input-bordered focus:outline-none " required />
           </div>

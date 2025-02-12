@@ -150,6 +150,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-1 md:gap-2">
+        <input onClick={toggleTheme} type="checkbox" className="toggle toggle-info" defaultChecked />
           {user ? (
             <>
             <input onClick={toggleTheme} type="checkbox" className="toggle toggle-info" defaultChecked />

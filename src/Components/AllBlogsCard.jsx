@@ -9,7 +9,7 @@ import 'react-photo-view/dist/react-photo-view.css';
 // import { motion } from "framer-motion";
 
 const AllBlogsCard = ({blog}) => {
-    const {user} = useContext(AuthContext)
+    const {user, theme} = useContext(AuthContext)
     const {title, photo, category, short_description, long_description} = blog;
 const email = user?.email;
  let date = moment().format(" Do MMM YYYY,  h:mm:ss a");
@@ -63,13 +63,13 @@ const email = user?.email;
             />
           </PhotoView>
         </div>
-        <div className="lg:w-9/12 flex flex-col items-start">
+        <div className={`lg:w-9/12  ${theme === 'dark' ? 'text-white': 'text-black'} flex flex-col items-start`}>
           <h1 className="md:text-4xl text-start lg:text-start text-2xl font-bold mb-4">
             {title}
           </h1>
-          <p className="text-gray-500 text-start lg:text-start">{short_description}</p>
-          <p className="text-gray-500 mb-4 lg:mb-0 font-bold mt-2 lg:text-start">
-            <span className="font-bold text-black">Category: </span>
+          <p className={` ${theme === 'dark' ? 'text-white/60': 'text-gray-500'}  text-start lg:text-start`}>{short_description}</p>
+          <p className={` mb-4 ${theme === 'dark' ? 'text-white/60': 'text-gray-500'}  lg:mb-0 font-bold mt-2 lg:text-start`}>
+            <span className={`font-bold ${theme === 'dark' ? 'text-white': 'text-black'}  `}>Category: </span>
             {category}
           </p>
           <div className="flex gap-4 justify-center lg:justify-start lg:mt-4">

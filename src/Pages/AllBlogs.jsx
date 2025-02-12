@@ -10,7 +10,7 @@ const AllBlogs = () => {
     const [allBlogs, setAllBlogs] = useState([]);
     const [filter, setFilter] = useState('');
     const [search, setSearch] = useState('');
-    const {loading, setLoading} = useContext(AuthContext);
+    const {loading, setLoading, theme} = useContext(AuthContext);
 
 
 
@@ -37,7 +37,7 @@ useEffect(() => {
 
 
     return (
-        <div className="flex items-center justify-center flex-col mt-10 pb-10 ">
+        <div className={` flex items-center ${theme === 'dark' ? 'bg-black' : 'bg-white'} justify-center flex-col pt-10 pb-10 `}>
              <Helmet>
                 <meta charSet="utf-8" />
                 <title>Blog Sphere || All Blogs</title>
