@@ -6,7 +6,7 @@ import { signOut } from "firebase/auth";
 import auth from "../../firebase.init";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, theme, toggleTheme } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -152,6 +152,7 @@ const Navbar = () => {
         <div className="navbar-end gap-1 md:gap-2">
           {user ? (
             <>
+            <input onClick={toggleTheme} type="checkbox" className="toggle toggle-info" defaultChecked />
               <img className="md:w-12 md:h-12 w-8 h-8 object-cover rounded-full" src={user.photoURL} alt="User" />
               <button onClick={handleLogOut} style={{ background: "linear-gradient(to top, #5350C3 0%, #8784F8 59%)" }} className="btn text-white text-sm md:text-lg font-bold">Log Out</button>
             </>

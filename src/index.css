@@ -41,3 +41,22 @@ body{
 .animate-fadeIn {
   animation: fadeIn 0.5s ease-in-out forwards;
 }
+
+
+ /* Light theme styles */
+ .light {
+  /* --bg-color: #ffffff;
+  
+  --text-color: #000000; */
+  --bg-color: #1a1a1a;
+  --text-color: #f1f1f1;
+}
+
+/* Dark theme styles */
+.dark {
+  /* --bg-color: #1a1a1a;
+  --text-color: #f1f1f1; */
+  --bg-color: #ffffff;
+  
+  --text-color: #000000;
+}
